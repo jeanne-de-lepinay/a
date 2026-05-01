@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeanne de Lépinay</title>
+<meta name="description" content="Geophysicist, expedition guide and lecturer. Science communication in the polar regions and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --sky:        #c8dce4;
+  --ice:        #dde9ee;
+  --mist:       #afc5d0;
+  --glacier:    #8fb5c5;
+  --fjord:      #6898aa;
+  --fjord-deep: #4a7585;
+  --pine:       #2d4f3c;
+  --pine-deep:  #1c3228;
+  --pine-mid:   #3a6350;
+  --pine-pale:  #4e7a60;
+  --stone:      #527060;
+  --gold:       #c9a44a;
+  --snow:       #f2efe8;
+  --snow-cold:  #eaf0f3;
+  --snow-dark:  #e0dbd1;
+  --ink:        #192019;
+  --ink-mid:    #3e4e44;
+  --ink-light:  #728278;
+  --teal:       #2f7260;
+  --teal-light: #5aaa88;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', sans-serif;
+  --col:   780px;
+}
+
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  background: var(--pine-deep);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+a {
+  color: var(--teal);
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3.5rem;
+  background: rgba(242,239,232,0.95);
+  border-bottom: 1px solid rgba(45,79,60,0.12);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+}
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink-mid);
+  transition: all 0.25s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width: 960px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: rgba(242,239,232,0.98);
+    border-bottom: 1px solid rgba(45,79,60,0.1);
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(16px);
+  }
+  .nav-links.open { display: flex !important;}
+  .nav-links li { width: 100%; }
+  .nav-links a { font-size: 0.75rem; }
+  .nav-atelier { display: inline-block; }
+}
+.nav-name { font-family: var(--serif); font-size: 1.05rem; font-style: italic; font-weight: 400; color: var(--ink-mid); text-decoration: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; transition: color 0.25s; font-weight: 400; }
+.nav-links a:hover { color: var(--teal); }
+.nav-atelier { color: var(--teal) !important; border: 1px solid rgba(47,114,96,0.3); padding: 0.3rem 0.8rem; transition: background 0.25s, color 0.25s !important; }
+.nav-atelier:hover { background: var(--teal) !important; color: #fff !important; }
+
+/* ── HERO — unchanged, full-bleed, opaque ── */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 50% 50%; }
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 5rem 6rem 8vw;
+  background: var(--snow);
+  position: relative; z-index: 1;
+}
+.hero-regions {
+  margin-top: 2.2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(45,79,60,0.1);
+}
+.hero-regions-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 0.7rem;
+}
+.hero-eyebrow { font-size: 0.68rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--teal); margin-bottom: 2.2rem; display: flex; align-items: center; gap: 1rem; }
+.hero-eyebrow::after { content:''; display: block; width: 32px; height: 1px; background: var(--teal); opacity: 0.4; }
+h1 { font-family: var(--serif); font-size: clamp(3.2rem, 5vw, 5.8rem); font-weight: 300; line-height: 0.95; margin-bottom: 1rem; letter-spacing: -0.01em; color: var(--ink); }
+h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
+.hero-subtitle { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-light); font-weight: 300; margin-bottom: 2.8rem; line-height: 2; }
+.hero-subtitle span { color: var(--teal); }
+.hero-lead { font-family: var(--serif); font-size: 1.08rem; font-weight: 300; line-height: 1.9; color: var(--ink-mid); max-width: 380px; }
+.hero-right { position: relative; overflow: hidden; background: var(--ice); }
+.hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.hero-rule {
+  position: relative;
+  z-index: 1;
+  height: 3px;
+  background: var(--fjord);
+  opacity: 1;
+  margin: 0 auto;
+}
+
+/* ── BACKGROUND SCENE — fixed behind all cards ── */
+.scene-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url('arctic_scene_better.webp');
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  filter: saturate(0.85) brightness(0.92);
+}
+.scene-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(28,50,40,0.22);
+}
+
+/* ── CARD WRAPPER — everything after hero sits here ── */
+.cards-wrap {
+  position: relative;
+  z-index: 1;
+  padding: 10rem 3.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── SHARED CARD BASE ── */
+.card-section {
+  background: rgba(242,236,220,0.96);
+  border: 1px solid rgba(45,79,60,0.14);
+  padding: 5rem 4rem;
+}
+.card-section .inner { max-width: var(--col); margin: 0 auto; }
+
+/* Climate gets its own colour, stays as a card */
+.card-section.climate {
+  background: rgba(28,50,40,0.97);
+  border-color: rgba(90,170,136,0.12);
+  color: rgba(215,235,225,0.85);
+}
+
+/* Footer card — compact */
+.card-section.footer-card {
+  padding: 1.5rem 4rem;
+  background: rgba(28,50,40,0.97);
+  border-color: rgba(90,170,136,0.08);
+  margin-bottom: 0;
+}
+
+/* ── SHARED TYPOGRAPHY (inside cards) ── */
+.label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem; display: block; }
+.climate .label { color: var(--teal-light); }
+
+h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.7rem); font-weight: 300; line-height: 1.1; margin-bottom: 0.4rem; color: var(--ink); }
+h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
+.climate h2 { color: #e0f0e8; }
+.climate h2 em { color: rgba(200,230,215,0.45); }
+
+.rule { width: 40px; height: 1px; background: var(--teal); opacity: 0.28; margin: 1.6rem 0 2.2rem; }
+.climate .rule { background: var(--teal-light); opacity: 0.22; }
+
+/* ── ABOUT ── */
+.about-layout { display: grid; grid-template-columns: 1fr; }
+.about-body { font-size: 0.97rem; line-height: 2; color: var(--ink-mid); }
+.about-body p + p { margin-top: 1.1em; }
+.about-body a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(47,114,96,0.25); transition: border-color 0.2s; }
+.about-body a:hover { border-color: var(--teal); }
+.about-sidebar-block { margin-bottom: 2rem; }
+.about-sidebar-label { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.55rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(45,79,60,0.1); }
+.about-sidebar-content { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
+.region-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.region-tag { font-size: 0.8rem; letter-spacing: 0.06em; padding: 0.26rem 0.64rem; border: 1px solid rgba(47,114,96,0.22); color: var(--teal); background: rgba(47,114,96,0.04); }
+
+.photo-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; margin-top: 4rem; }
+.photo-slot { aspect-ratio: 4/3; background: var(--snow-dark); position: relative; overflow: hidden; }
+.photo-slot img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.5s ease, filter 0.4s; filter: saturate(0.85); }
+.photo-slot:hover img { transform: scale(1.04); filter: saturate(1); }
+.photo-slot-label { position:absolute; bottom:0; left:0; right:0; padding:0.6rem 0.9rem; background:linear-gradient(0deg,rgba(26,32,24,0.6),transparent); font-size:0.55rem; color:rgba(235,245,240,0.9); letter-spacing:0.1em; text-transform:uppercase; }
+.photo-slot-ph { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
+.ph-icon { font-size:1.4rem; opacity:0.1; }
+.ph-text { font-size:0.55rem; color:var(--ink-light); letter-spacing:0.1em; text-transform:uppercase; text-align:center; padding:0 0.8rem; }
+
+/* ── QUALIFICATIONS ── */
+.certs-outer { display: grid; grid-template-columns: 1fr 250px; gap: 3rem; }
+.cert-group { margin-bottom: 1.5rem;   
+  background: rgba(244,241,234,0.97); 
+  border: 1px solid rgba(45,79,60,0.1);
+  padding: 1.5rem;}
+.cert-group-full {
+  margin-top: 1.5rem;
+  background: rgba(244,241,234,0.97);
+  border: 1px solid rgba(45,79,60,0.1);
+  padding: 1.5rem;
+}
+.cert-group-title { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(45,79,60,0.1); }
+.cert-badges { display: flex; flex-wrap: wrap; gap: 1rem 0.9rem; justify-content: center;   max-width: 600px;
+  margin: 0 auto; }
+.cert-badge { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; width: 74px; text-align: center; flex-shrink: 0; }
+.cert-icon-wrap { width: 58px; height: 58px; background: rgba(47,114,96,0.05); border: 1px solid rgba(47,114,96,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: border-color 0.25s, background 0.25s; }
+.cert-icon-wrap svg { width:27px; height:27px; stroke: rgba(47,114,96,0.5); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.25s; }
+.cert-badge:hover .cert-icon-wrap { border-color: rgba(47,114,96,0.4); background: rgba(47,114,96,0.09); }
+.cert-badge:hover svg { stroke: var(--teal); }
+.cert-badge-name { font-size: 0.68rem; color: var(--ink-light); line-height: 1.35; }
+.learn-more-link { display:flex; justify-content: center; align-items:center; gap:0.45rem; font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); text-decoration:none; margin-top:2rem; padding-bottom:0.12rem; transition:all 0.2s; }
+.learn-more-link:hover { border-color: var(--teal); }
+.learn-more-link::after { content: '↓'; font-size: 0.72rem; }
+.lang-panel-title { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(45,79,60,0.1); }
+.lang-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(45,79,60,0.08); }
+.lang-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--ink); }
+.lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+
+/* ── EXPERIENCE ── */
+.exp-note { font-family: var(--serif); font-size: 1rem; font-weight: 300; font-style: italic; line-height: 1.9; color: var(--stone); max-width: 480px; margin-bottom: 2.8rem; }
+.carousel { position:relative; overflow:hidden; border:1px solid rgba(45,79,60,0.12); background: var(--ice); }
+.carousel-track { display:flex; transition:transform 0.45s cubic-bezier(.4,0,.2,1); will-change:transform; }
+.carousel-slide { min-width:100%; aspect-ratio:16/9; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; background: var(--ice); }
+.carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.carousel-slide-cap { position:absolute; bottom:0; left:0; right:0; padding: 1rem 1.4rem; background: linear-gradient(0deg, rgba(20,32,24,0.68), transparent); }
+.carousel-slide-cap-title { font-family: var(--serif); font-size: 0.95rem; font-style: italic; font-weight: 300; color: rgba(225,245,235,0.95); line-height: 1.4; }
+.carousel-slide-cap-sub { font-size: 0.62rem; color: rgba(170,210,192,0.7); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.25rem; }
+.carousel-ph-icon { font-size:2.2rem; opacity:0.12; }
+.carousel-ph-text { font-size:0.6rem; color:var(--stone); letter-spacing:0.1em; text-transform:uppercase; text-align:center; padding:0 2rem; margin-top:0.6rem; line-height:1.5; }
+.carousel-controls { display:flex; align-items:center; justify-content:space-between; padding:0.8rem 1.1rem; background: rgba(45,79,60,0.04); border-top:1px solid rgba(45,79,60,0.1); }
+.carousel-btn { background:none; border:1px solid rgba(45,79,60,0.18); color:var(--ink-mid); cursor:pointer; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.85rem; transition:all 0.22s; }
+.carousel-btn:hover { border-color: var(--ink-mid); }
+.carousel-dots { display:flex; gap:0.45rem; }
+.carousel-dot { width:5px; height:5px; border-radius:50%; background: rgba(45,79,60,0.18); cursor:pointer; transition:background 0.2s; border:none; padding:0; }
+.carousel-dot.active { background: var(--pine-mid); }
+
+/* ── LECTURES ── */
+.filter-row { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.filter-btn { font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.38rem 0.9rem; border:1px solid rgba(45,79,60,0.16); background:transparent; color:var(--ink-mid); cursor:pointer; transition:all 0.22s; font-family:var(--sans); font-weight:400; }
+.filter-btn:hover, .filter-btn.active { background:var(--teal); border-color:var(--teal); color:#fff; }
+.content-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(45,79,60,0.07); }
+.content-card { background:rgba(244,241,234,0.97); padding:1.5rem 1.7rem; cursor:pointer; transition:background 0.2s; position:relative; }
+.content-card:hover { background: var(--snow); }
+.content-card.hidden { display:none; }
+.content-card-header { display:flex; justify-content:space-between; align-items:flex-start; gap:0.8rem; margin-bottom:0.5rem; }
+.content-card-title { font-family:var(--serif); font-size:0.97rem; font-weight:400; color:var(--ink); line-height:1.3; }
+.content-badge { font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); white-space:nowrap; flex-shrink:0; }
+.content-place { font-size:0.59rem; color:var(--teal); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.4rem; }
+.content-desc { font-size:0.8rem; color:var(--ink-mid); line-height:1.7; }
+.content-card-arrow { position:absolute; bottom:1.1rem; right:1.4rem; font-size:0.62rem; color:var(--ink-light); opacity:0; transition:opacity 0.18s; }
+.content-card:hover .content-card-arrow { opacity:1; }
+.topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  margin-top: 1rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(45,79,60,0.1);
+}
+.topic-tag {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--teal);
+  border: 1px solid rgba(47,114,96,0.25);
+  padding: 0.5rem 1.2rem;
+  background: rgba(47,114,96,0.04);
+  letter-spacing: 0.02em;
+}
+.topic-tag.large {
+  color: #1c3228;
+  border-color: rgba(28,50,40,0.35);
+  background: rgba(47,114,96,0.12);
+}
+.topic-tag.small {
+  color: #5aaa88;
+  border-color: rgba(90,170,136,0.22);
+  background: rgba(90,170,136,0.05);
+}
+
+/* ── CLIMATE ── */
+.climate-layout { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.climate-text p { font-size:0.93rem; line-height:1.95; color:rgba(175,210,195,0.75); margin-bottom:1.1rem; }
+.climate-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(90,170,136,0.1); border:1px solid rgba(90,170,136,0.1); margin-top:2rem; }
+.climate-stat { background:rgba(28,50,40,0.6); padding:1.3rem; }
+.climate-stat-num { font-family:var(--serif); font-size:1.9rem; font-weight:300; color:var(--teal-light); line-height:1; }
+.climate-stat-label { font-size:0.6rem; color:rgba(90,170,136,0.48); letter-spacing:0.08em; margin-top:0.3rem; }
+.climate-card { border:1px solid rgba(90,170,136,0.14); padding:2rem; background:rgba(255,255,255,0.03); }
+.climate-card-title { font-family:var(--serif); font-size:1.1rem; font-style:italic; font-weight:300; color:#e0f0e8; margin-bottom:0.75rem; line-height:1.4; }
+.climate-card-desc { font-size:0.83rem; color:rgba(170,205,190,0.68); line-height:1.82; margin-bottom:1.5rem; }
+.climate-link { display:inline-flex; align-items:center; gap:0.45rem; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal-light); text-decoration:none; border-bottom:1px solid rgba(90,170,136,0.26); padding-bottom:0.12rem; transition:all 0.2s; }
+.climate-link:hover { color:#9dd4b5; border-color:rgba(90,170,136,0.52); }
+.climate-link::after { content:'→'; }
+.mini-bar-row { margin-bottom:0.75rem; }
+.mini-bar-top { display:flex; justify-content:space-between; font-size:0.66rem; color:rgba(155,195,175,0.62); margin-bottom:0.3rem; }
+.mini-bar-track { height:2px; background:rgba(90,170,136,0.1); border-radius:2px; }
+.mini-bar-fill { height:100%; border-radius:2px; background:var(--teal-light); }
+
+/* ── CONTACT ── */
+.card-section.contact {
+  margin-bottom: 40rem;
+}
+.contact-line { font-family:var(--serif); font-size:1.05rem; font-style:italic; font-weight:300; color:var(--ink-mid); margin-bottom:2.2rem; line-height:1.85; }
+.contact-links { display:flex; flex-direction:column; }
+.contact-link { display:flex; align-items:center; gap:1.5rem; font-size:0.87rem; color:var(--ink); text-decoration:none; padding:0.45rem 0; border-bottom:1px solid rgba(45,79,60,0.1); transition:opacity 0.2s; opacity:0.7; }
+.contact-link:hover { opacity:1; }
+.contact-link:first-child { border-top:1px solid rgba(45,79,60,0.1); }
+.contact-link-label { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-light); width:72px; flex-shrink:0; }
+
+/* ── FOOTER (inside .cards-wrap) ── */
+.footer-card { display:flex; justify-content:space-between; align-items:center; margin-bottom: 0; }
+.footer-card p { font-size:0.64rem; color:rgba(175,210,192,0.35); letter-spacing:0.06em; }
+
+/* ── SPACER after cards ── */
+.cards-end { height: 2.5rem; position: relative; z-index: 1; }
+
+/* ── ART DRAWER ── */
+.drawer-overlay { position:fixed; inset:0; background:rgba(20,32,24,0.35); z-index:399; opacity:0; pointer-events:none; transition:opacity 0.3s; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
+.drawer-overlay.open { opacity:1; pointer-events:all; }
+.art-drawer { position:fixed; top:0; right:-460px; bottom:0; width:440px; z-index:400; background:var(--snow); border-left:1px solid rgba(45,79,60,0.1); transition:right 0.42s cubic-bezier(.4,0,.2,1); overflow-y:auto; padding:3rem 2.4rem; box-shadow:-12px 0 60px rgba(20,32,24,0.1); }
+.art-drawer.open { right:0; }
+.art-drawer-close { position:absolute; top:1.4rem; right:1.5rem; background:none; border:none; font-size:1rem; cursor:pointer; color:var(--ink-light); transition:color 0.2s; line-height:1; }
+.art-drawer-close:hover { color:var(--ink); }
+.art-drawer-label { font-size:0.58rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--teal); margin-bottom:0.7rem; display:block; }
+.art-drawer h3 { font-family:var(--serif); font-size:1.6rem; font-weight:300; font-style:italic; color:var(--ink); margin-bottom:0.3rem; line-height:1.2; }
+.art-drawer-intro { font-size:0.84rem; color:var(--ink-mid); line-height:1.85; margin-bottom:1.9rem; margin-top:0.9rem; }
+.art-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px; }
+.art-slot { aspect-ratio:1; background:var(--snow-cold); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.38rem; position:relative; overflow:hidden; }
+.art-slot img { width:100%; height:100%; object-fit:cover; display:block; }
+.art-slot-ph { font-size:1.4rem; opacity:0.08; }
+.art-slot-label { font-size:0.5rem; color:var(--ink-light); letter-spacing:0.1em; text-transform:uppercase; text-align:center; padding:0 0.5rem; }
+.art-note { font-size:0.76rem; color:var(--ink-light); line-height:1.75; margin-top:1.5rem; font-style:italic; }
+
+/* ── MODAL ── */
+.content-modal-overlay { position:fixed; inset:0; background:rgba(20,32,24,0.6); z-index:500; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity 0.28s; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+.content-modal-overlay.open { opacity:1; pointer-events:all; }
+.content-modal { background:var(--snow); max-width:580px; width:90%; max-height:85vh; overflow-y:auto; padding:2.5rem; position:relative; box-shadow:0 24px 80px rgba(20,32,24,0.2); }
+.modal-close { position:absolute; top:1.3rem; right:1.5rem; background:none; border:none; font-size:1.1rem; cursor:pointer; color:var(--ink-light); transition:color 0.2s; }
+.modal-close:hover { color:var(--ink); }
+.modal-photo { width:100%; aspect-ratio:16/9; background:var(--snow-cold); display:flex; align-items:center; justify-content:center; margin-bottom:1.6rem; overflow:hidden; }
+.modal-photo img { width:100%; height:100%; object-fit:cover; }
+.modal-photo-ph { font-size:2rem; opacity:0.1; }
+.modal-label { font-size:0.58rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--teal); margin-bottom:0.5rem; }
+.modal-title { font-family:var(--serif); font-size:1.55rem; font-weight:300; color:var(--ink); margin-bottom:0.4rem; line-height:1.2; }
+.modal-meta { font-size:0.63rem; color:var(--ink-light); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.3rem; }
+.modal-desc { font-size:0.93rem; color:var(--ink-mid); line-height:1.88; }
+
+/* ── LAZY LOAD ── */
+img.lazy { opacity:0; transition:opacity 0.45s ease; }
+img.lazy.loaded { opacity:1; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:960px) {
+  nav { padding:0.5rem 1rem; }
+  .nav-links { gap:0.3rem; }
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-left { padding:9rem 1.5rem 3.5rem; }
+  .hero-right { height:70vw; max-height:480px; }
+  .cards-wrap { padding: 1.5rem 1rem 0; gap: 1rem; }
+  .card-section { padding: 3.5rem 1.8rem; }
+  .footer-card { padding: 1.2rem 1.8rem; }
+  .about-layout, .climate-layout, .certs-outer { grid-template-columns:1fr; gap:2.5rem; }
+  .content-grid { grid-template-columns:1fr; }
+  .photo-strip { grid-template-columns:1fr 1fr; }
+  footer { flex-direction:column; gap:0.5rem; text-align:center; }
+  .art-drawer { width:min(440px,95vw); right:-110vw; }
+  .scene-bg { background-attachment: scroll; }
+}
+</style>
+</head>
+<body>
+<div class="scene-bg"></div>
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- Art drawer -->
+<aside class="art-drawer" id="artDrawer" aria-hidden="true" aria-label="Atelier — art and illustration">
+  <button class="art-drawer-close" id="artClose" aria-label="Close">✕</button>
+  <span class="art-drawer-label">A quiet corner</span>
+  <h3>Art & illustration</h3>
+  <p class="art-drawer-intro">Outside of science, I draw, paint, and make things. Watercolour, field sketching, textile — mostly made while travelling or between expeditions.</p>
+  <div class="art-grid">
+    <div class="art-slot">
+      <img src="image.png" alt="Art piece 1" class="lazy" loading="lazy">
+      <!-- fallback if no image -->
+    </div>
+    <div class="art-slot">
+      <img src="image.png" alt="Art piece 2" class="lazy" loading="lazy">
+    </div>
+    <div class="art-slot">
+      <img src="image.png" alt="Art piece 3" class="lazy" loading="lazy">
+    </div>
+    <div class="art-slot">
+      <img src="image.png" alt="Art piece 4" class="lazy" loading="lazy">
+    </div>
+  </div>
+  <p class="art-note">Images coming soon — replace each src with your artwork file paths.</p>
+</aside>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Jeanne de Lépinay</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+  <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">Background</a></li>
+    <li><a href="#certs">Qualifications</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#lectures">Content</a></li>
+	<li><a href="#climate">Climate Change</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-atelier" id="artTab" role="button">Atelier</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Earth Science</p>
+    <h1>Jeanne<br><em>de Lépinay</em></h1>
+    <p class="hero-subtitle">Geophysicist (PhD) &nbsp;·&nbsp; <span>Expedition Guide</span> &nbsp;·&nbsp; Lecturer</p>
+    <p class="hero-lead">Working at the intersection of Earth science, fieldwork, and science communication — on ships, in lecture rooms, and everywhere in between.</p>
+	<div class="hero-regions">
+  <div class="hero-regions-label">Expedition regions</div>
+  <div class="region-tags">
+    <span class="region-tag">Antarctica</span><span class="region-tag">Greenland</span><span class="region-tag">Svalbard</span><span class="region-tag">Norway</span><span class="region-tag">Alaska</span><span class="region-tag">Northern Canada</span><span class="region-tag">Iceland</span><span class="region-tag">Patagonia</span><span class="region-tag">Caribbean</span>
+  </div>
+</div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="jeanne_illustration.webp"
+      alt="Jeanne de Lépinay on expedition — illustrated portrait"
+      class="hero-img"
+      fetchpriority="high"
+      decoding="async"
+      width="1149"
+      height="1369"
+    >
+  </div>
+</section>
+
+</section>
+
+<div class="hero-rule"></div>
+
+<div class="cards-wrap">
+
+<!-- BACKGROUND -->
+<div class="cards-wrap">
+<section class="card-section about" id="about">
+  <div class="inner">
+    <span class="label">Background</span>
+    <h2>From Guadeloupe<br><em>to the polar ice</em></h2>
+    <div class="rule"></div>
+    <div class="about-layout">
+      <div class="about-body">
+        <p>I studied geophysics at EOST in Strasbourg before spending four years in Guadeloupe for my PhD — developing magnetic survey techniques by motorboat and drone to map the geothermal potential of a volcanic island. The fieldwork was complicated; the science was interesting; explaining both to people without a geophysics background turned out to be what I enjoyed most.</p>
+        <p>That thread ran through a postdoc at IPGS, a stint as sole geophysicist at Terremys, and parallel involvement in Ge-P-To, a Strasbourg outreach association co-founded with Earth science students in 2015. Since 2023, I've been doing it full-time aboard <a href="https://www.travelhx.com" target="_blank">Travel HX</a> vessels, in some of the most geologically interesting places on Earth.</p>
+      </div>
+    </div>
+
+    <!-- Photo strip — replace src="image.png" with real paths -->
+    <div class="photo-strip">
+      <div class="photo-slot">
+        <img src="image.png" alt="Zodiac operations in polar waters" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Polar landing</div>
+      </div>
+      <div class="photo-slot">
+        <img src="image.png" alt="On-location field lecture" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Field lecture</div>
+      </div>
+      <div class="photo-slot">
+        <img src="image.png" alt="Expedition guiding — Travel HX" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Travel HX · 2023–present</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALIFICATIONS -->
+<section class="card-section certs" id="certs">
+  <div class="inner">
+    <span class="label">Qualifications</span>
+    <h2>Certifications<br><em>and languages</em></h2>
+    <div class="rule"></div>
+
+    <div class="certs-outer">
+        <div class="cert-group">
+          <div class="cert-group-title">Science communication</div>
+          <div class="cert-badges">
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="cert-badge-name">Lectures & workshops</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div><div class="cert-badge-name">Citizen science</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="cert-badge-name">Discussion panels</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="cert-badge-name">Art & science</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="cert-badge-name">Short talks</div></div>
+          </div>
+          <a class="learn-more-link" href="#lectures">See what I talk about</a>
+        </div>
+ 	  <div class="cert-group">
+        <div class="lang-panel-title">Languages</div>
+        <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">Native · C2+</span></div>
+        <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Full professional · C2</span></div>
+        <div class="lang-row"><span class="lang-name">German</span><span class="lang-level">Conversational · B1–B2</span></div>
+   	  </div>
+    </div>
+	<div class="cert-group-full">
+          <div class="cert-group-title">Maritime & field</div>
+          <div class="cert-badges">
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v13M5 12H2a10 10 0 0020 0h-3"/></svg></div><div class="cert-badge-name">STCW + Crowd & Crisis + PDSD</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div><div class="cert-badge-name">Wilderness First Aid</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24">
+  <path d="M12 3c3 0 6 2 6 5v15H6V8c0-3 3-5 6-5z"/>  <path d="M8 12h8M8 17h8"/></svg></div><div class="cert-badge-name">RYA Powerboat L2</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" /></svg></div><div class="cert-badge-name">RYA VHF C1/D & B1/B2</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cert-badge-name">Sysselmesteren Permit</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6M9 15h6"/></svg></div><div class="cert-badge-name">ENG1 Medical</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><div class="cert-badge-name">ILO Seaman's Book</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="cert-badge-name">US Visa C1/D & B1/B2</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div><div class="cert-badge-name">Engineering Degree, Geophysics</div></div>
+        </div>
+	</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE — misty blue -->
+<section class="card-section experience" id="experience">
+  <div class="inner">
+    <span class="label">Experience</span>
+    <h2>A short history<br><em>in places and projects</em></h2>
+    <div class="rule"></div>
+    <p class="exp-note">From volcanic islands to drone surveys to the polar ice — illustrated with images from the field and maps produced along the way.</p>
+
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <img src="image.png" alt="Drone magnetic survey — Guadeloupe PhD fieldwork" class="lazy" loading="lazy" width="1600" height="900">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Drone magnetic survey — Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork · Basse-Terre · 2015–2019</div></div>
+        </div>
+        <div class="carousel-slide">
+          <img src="image.png" alt="Geophysical interpretation map" class="lazy" loading="lazy" width="1600" height="900">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Geophysical interpretation map</div><div class="carousel-slide-cap-sub">Basse-Terre magnetic cartography</div></div>
+        </div>
+        <div class="carousel-slide">
+          <img src="image.png" alt="Terremys drone survey operations" class="lazy" loading="lazy" width="1600" height="900">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Terremys drone survey operations</div><div class="carousel-slide-cap-sub">Geophysical mapping · 2020–2022</div></div>
+        </div>
+        <div class="carousel-slide">
+          <img src="image.png" alt="Zodiac guiding in polar waters" class="lazy" loading="lazy" width="1600" height="900">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding — polar waters</div><div class="carousel-slide-cap-sub">Travel HX · Arctic / Antarctica</div></div>
+        </div>
+        <div class="carousel-slide">
+          <img src="image.png" alt="Onboard lecture" class="lazy" loading="lazy" width="1600" height="900">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Onboard lecture</div><div class="carousel-slide-cap-sub">Travel HX · 2023–present</div></div>
+        </div>
+        <div class="carousel-slide">
+          <img src="image.png" alt="Polar landing — Svalbard" class="lazy" loading="lazy" width="1600" height="900">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar landing — Svalbard</div><div class="carousel-slide-cap-sub">Expedition guiding · Svalbard / Greenland</div></div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Previous">‹</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext" aria-label="Next">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT / LECTURES -->
+<section class="card-section lectures" id="lectures">
+  <div class="inner">
+    <span class="label">Lectures, workshops & activities</span>
+    <h2>What I talk about<br><em>and do with people</em></h2>
+    <div class="rule"></div>
+	<div class="topic-tags">
+  <span class="topic-tag large">Geology</span>
+  <span class="topic-tag large">Physics & Systems</span>
+  <span class="topic-tag large">Glaciology</span>
+  <span class="topic-tag large">Climate Change & Environment</span>
+  <span class="topic-tag">Permafrost</span>
+  <span class="topic-tag">Weather & Clouds</span>
+  <span class="topic-tag">Ecosystems</span>
+  <span class="topic-tag small">Oceans</span>
+  <span class="topic-tag small">Flora</span>
+</div>
+    <p style="color:var(--ink-mid);font-size:0.92rem;margin-bottom:2.2rem;line-height:1.88;">Here is an example selection of ready-to-deliver content. Click any card for details. Lectures run 40 - 45 minutes including questions time; workshops are hands-onshort talks slot in anywhere.</p>
+
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="Lecture">Lectures</button>
+      <button class="filter-btn" data-filter="Workshop">Workshops</button>
+      <button class="filter-btn" data-filter="Short talk">Short talks</button>
+      <button class="filter-btn" data-filter="Activity">Activities</button>
+    </div>
+
+    <div class="content-grid" id="contentGrid">
+      <div class="content-card" data-type="Lecture" data-title="The Very Cool Life of Glaciers" data-place="Poles" data-badge="30 min · Lecture" data-desc="Glaciers build valleys, reshape landscapes, and calve icebergs in ways entirely their own. Their lives — from formation over millennia to the hints they leave behind."><div class="content-place">Poles</div><div class="content-card-header"><div class="content-card-title">The Very Cool Life of Glaciers</div><div class="content-badge">30 min · Lecture</div></div><div class="content-desc">Glaciers build valleys, reshape landscapes, and calve icebergs in ways entirely their own.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Lecture" data-title="Permafrost" data-place="Arctic" data-badge="30 min · Lecture" data-desc="Around 11% of global land sits on permanently frozen ground — readable in the landscape. Geomorphology, ecosystems, and what rapid warming means for permafrost-rich regions."><div class="content-place">Arctic</div><div class="content-card-header"><div class="content-card-title">Permafrost</div><div class="content-badge">30 min · Lecture</div></div><div class="content-desc">Around 11% of global land sits on permanently frozen ground — readable in the landscape.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Lecture" data-title="Plastic Invasion: the Ocean Chronicles" data-place="Any location" data-badge="40 min · Lecture" data-desc="Plastic is remarkably useful and remarkably persistent. How it ended up everywhere — including the deepest, remotest parts of the ocean."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Plastic Invasion: the Ocean Chronicles</div><div class="content-badge">40 min · Lecture</div></div><div class="content-desc">Plastic is remarkably useful and remarkably persistent. How it ended up everywhere.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Lecture" data-title="Atacama Desert" data-place="South and Central America" data-badge="35 min · Lecture" data-desc="The Atacama is so dry it's almost alien. Why? Since when? And what does that dryness have to do with its mineral wealth? Don't forget your water bottle."><div class="content-place">South and Central America</div><div class="content-card-header"><div class="content-card-title">Atacama Desert</div><div class="content-badge">35 min · Lecture</div></div><div class="content-desc">The Atacama is so dry it's almost alien. Why? Since when? And what does that have to do with its mineral wealth?</div><div class="content-card-arrow">→</div></div>
+
+      <div class="content-card" data-type="Workshop" data-title="Earthquake Prediction Contest" data-place="Any location" data-badge="30 min · Workshop" data-desc="With all the technology available, predicting earthquakes should be simple — right? A participative look at why it turns out to be anything but."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Earthquake Prediction Contest</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">Predicting earthquakes should be simple with all our technology — right?</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Workshop" data-title="Volcano Types" data-place="Any location" data-badge="30 min · Workshop" data-desc="Why do different volcanoes look and behave so differently? Come and build some — though be warned, volcanoes tend to make a mess wherever they are."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Volcano Types</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">Why do different volcanoes look and behave so differently? Come and build some.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Workshop" data-title="Finger Painting Cloud Chart" data-place="Any location" data-badge="60 min · Workshop" data-desc="The best way to remember cloud types is to make your own cheat sheet. Hands-on and artistic — talent not required, but wear clothes you don't mind getting messy."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Finger Painting Cloud Chart</div><div class="content-badge">60 min · Workshop</div></div><div class="content-desc">The best way to remember cloud types is to make your own cheat sheet. Artistic and hands-on.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Workshop" data-title="Scientific Drawing" data-place="Any location" data-badge="45 min · Workshop" data-desc="Practise the drawing methods naturalists used to record their observations. Bring curiosity — and patience."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Scientific Drawing</div><div class="content-badge">45 min · Workshop</div></div><div class="content-desc">Practise the drawing methods naturalists used to record their observations.</div><div class="content-card-arrow">→</div></div>
+
+      <div class="content-card" data-type="Short talk" data-title="Why is the Ice Blue?" data-place="Poles" data-badge="10 min · Short talk" data-desc="Glaciers and icebergs often glow a deep, ethereal blue. The physics behind the colour is surprisingly beautiful."><div class="content-place">Poles</div><div class="content-card-header"><div class="content-card-title">Why is the Ice Blue?</div><div class="content-badge">10 min · Short talk</div></div><div class="content-desc">Glaciers and icebergs often glow a deep, ethereal blue. The physics is surprisingly beautiful.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Short talk" data-title="Auroras" data-place="Arctic" data-badge="5 min · Short talk" data-desc="How solar particles collide with our atmosphere to create dancing curtains of colour — and what determines where and when they appear."><div class="content-place">Arctic</div><div class="content-card-header"><div class="content-card-title">Auroras</div><div class="content-badge">5 min · Short talk</div></div><div class="content-desc">How solar particles create those dancing curtains of colour — and when they appear.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Short talk" data-title="What is a Long Time?" data-place="Any location" data-badge="10 min · Short talk" data-desc="Geologists talk casually about millions and billions of years. Putting deep time in perspective on a human scale."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">What is a Long Time?</div><div class="content-badge">10 min · Short talk</div></div><div class="content-desc">Geologists talk casually about millions of years. Putting deep time in human perspective.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Short talk" data-title="Who Am I? — Jeanne Baret" data-place="Antarctica" data-badge="5 min · Short talk" data-desc="A mystery figure from history: the first woman to circumnavigate the globe — travelling disguised as a man on a French expedition."><div class="content-place">Antarctica</div><div class="content-card-header"><div class="content-card-title">Who Am I? — Jeanne Baret</div><div class="content-badge">5 min · Short talk</div></div><div class="content-desc">The first woman to circumnavigate the globe — disguised as a man on a French expedition.</div><div class="content-card-arrow">→</div></div>
+
+      <div class="content-card" data-type="Activity" data-title="Survey: How do you feel about Climate Change?" data-place="Any location" data-badge="Passive · Activity" data-desc="An onboard survey capturing how passengers think and feel about the climate crisis. Part of an ongoing science communication research project with an openly published dataset."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Survey: How do you feel about Climate Change?</div><div class="content-badge">Passive · Activity</div></div><div class="content-desc">Onboard survey capturing passenger attitudes on climate change. Part of an open research project.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Activity" data-title="Watercolour Painting" data-place="Any location" data-badge="60+ min · Activity" data-desc="Guided or free-form watercolour session. No experience needed — just some willingness to look carefully at what's outside."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Watercolour Painting</div><div class="content-badge">60+ min · Activity</div></div><div class="content-desc">Guided or free-form watercolour session. No experience needed — just curiosity.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Activity" data-title="Fjordphyto Citizen Science Boat" data-place="Poles" data-badge="60+ min · Activity" data-desc="Collect water samples as part of the Fjordphyto project, studying phytoplankton from the ship. Real data, real science, real contribution."><div class="content-place">Poles</div><div class="content-card-header"><div class="content-card-title">Fjordphyto Citizen Science Boat</div><div class="content-badge">60+ min · Activity</div></div><div class="content-desc">Collect water samples as part of the Fjordphyto project. Real data, real science.</div><div class="content-card-arrow">→</div></div>
+      <div class="content-card" data-type="Activity" data-title="Intro to NASA Clouds Observer" data-place="Any location" data-badge="15 min · Activity" data-desc="How to identify and report clouds as part of a global citizen science network — a short introduction to becoming an official NASA observer."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Intro to NASA Clouds Observer</div><div class="content-badge">15 min · Activity</div></div><div class="content-desc">How to become an official NASA cloud observer — part of a global citizen science network.</div><div class="content-card-arrow">→</div></div>
+    </div>
+	    <p style="color:var(--ink-mid);font-size:0.8rem;margin-top:2.2rem;line-height:1.88;">If you want to know more about my content, <a href="#contact"> contact me!</a></p>
+  </div>
+</section>
+
+<!-- CLIMATE CHANGE — deep pine, AFTER content -->
+<section class="card-section climate" id="climate">
+  <div class="inner">
+    <span class="label">Climate Change</span>
+    <h2>How do you feel<br><em>about climate change?</em></h2>
+    <div class="rule"></div>
+    <div class="climate-layout">
+      <div class="climate-text">
+        <p>Since 2023, I've been running a survey aboard Travel HX vessels — collecting responses from passengers on their views, feelings, and attitudes toward climate change. The survey runs in English, German, and Chinese.</p>
+        <p>Results are analysed using k-means clustering and PCA to identify distinct respondent profiles. The findings are published openly on a dedicated website.</p>
+        <div class="climate-stats">
+          <div class="climate-stat"><div class="climate-stat-num">287</div><div class="climate-stat-label">Respondents · 2 cruises</div></div>
+          <div class="climate-stat"><div class="climate-stat-num">67%</div><div class="climate-stat-label">View CC as serious & human-caused</div></div>
+          <div class="climate-stat"><div class="climate-stat-num">7.4</div><div class="climate-stat-label">Mean personal worry / 10</div></div>
+          <div class="climate-stat"><div class="climate-stat-num">4</div><div class="climate-stat-label">Respondent profiles (k-means)</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="climate-card">
+          <div class="climate-card-title">"How do you feel about climate change?" — Survey Results</div>
+          <div class="climate-card-desc">Ongoing study aboard Travel HX vessels. Paper and online forms in English, Chinese & German. Results openly published with cluster analysis and respondent profiles.</div>
+          <a class="climate-link" href="https://jeanne-de-lepinay.github.io/climate-change-survey/" target="_blank">View the survey results</a>
+          <div style="margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid rgba(104,180,144,0.1);">
+            <div style="font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:rgba(104,180,144,0.45);margin-bottom:0.9rem;">The worry gap</div>
+            <div class="mini-bar-row"><div class="mini-bar-top"><span>Personal worry</span><span>7.4 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:74%"></div></div></div>
+            <div class="mini-bar-row"><div class="mini-bar-top"><span>Fellow guests (perceived)</span><span>6.3 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:63%;opacity:0.65;"></div></div></div>
+            <div class="mini-bar-row"><div class="mini-bar-top"><span>General public (perceived)</span><span>4.9 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:49%;opacity:0.38;"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — fjord blue -->
+<section class="card-section contact" id="contact">
+  <div class="inner">
+    <span class="label">Contact</span>
+    <h2>Get in touch</h2>
+    <div class="rule"></div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:jeanne.mercier-de-lepinay@travelhx.com"><span class="contact-link-label">Email</span>jeanne.mercier-de-lepinay@travelhx.com</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/mdljeanne/" target="_blank"><span class="contact-link-label">LinkedIn</span>linkedin.com/in/mdljeanne</a>
+      <a class="contact-link" href="https://jeanne-de-lepinay.github.io/climate-change-survey/" target="_blank"><span class="contact-link-label">Survey</span>Climate change survey — Travel HX</a>
+      <a class="contact-link" href="https://www.travelhx.com" target="_blank"><span class="contact-link-label">Employer</span>travelhx.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="card-section footer-card">
+  <p>Jeanne de Lépinay · © 2026</p>
+</footer>
+</div>
+
+<!-- CONTENT MODAL -->
+<div class="content-modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="content-modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-photo" id="modalPhoto">
+      <div class="modal-photo-ph">🎙️</div>
+    </div>
+    <div class="modal-label" id="modalLabel"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-meta" id="modalMeta"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+  </div>
+</div>
+
+<script>
+// ── Art drawer ──────────────────────────────────────────────────────
+const artTab = document.getElementById('artTab');
+const artDrawer = document.getElementById('artDrawer');
+const artClose = document.getElementById('artClose');
+const drawerOverlay = document.getElementById('drawerOverlay');
+
+function openArt(e) { if(e) e.preventDefault(); artDrawer.classList.add('open'); drawerOverlay.classList.add('open'); artDrawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+function closeArt() { artDrawer.classList.remove('open'); drawerOverlay.classList.remove('open'); artDrawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+artTab.addEventListener('click', openArt);
+artClose.addEventListener('click', closeArt);
+drawerOverlay.addEventListener('click', closeArt);
+
+// ── Days at sea ─────────────────────────────────────────────────────
+async function countDaysAtSea() {
+  const ID='9d0041d0bd3a', TOKEN='fd0c02b0836f73ee97e09cf571812d719641b80f', FALLBACK=425;
+  const today=new Date(); today.setHours(0,0,0,0);
+  const urls=[
+    `https://app.yearful.io/api/calendars/${ID}/events?accessToken=${TOKEN}`,
+    `https://app.yearful.io/api/v1/calendars/${ID}?accessToken=${TOKEN}`,
+    `https://app.yearful.io/calendars/${ID}.json?accessToken=${TOKEN}`,
+  ];
+  for(const url of urls){
+    try{
+      const r=await fetch(url,{headers:{Accept:'application/json'}});
+      if(!r.ok) continue;
+      const data=await r.json();
+      const events=data.events||data.data||(Array.isArray(data)?data:[]);
+      if(!Array.isArray(events)||!events.length) continue;
+      let days=0;
+      for(const ev of events){
+        const t=(ev.title||ev.name||ev.summary||'').toLowerCase();
+        if(!t.includes('jeanne')||!t.includes('bord')) continue;
+        const s=new Date(ev.start_date||ev.start||ev.startDate);
+        const e=new Date(ev.end_date||ev.end||ev.endDate);
+        if(isNaN(s)||isNaN(e)) continue;
+        const cap=e>today?today:e;
+        if(cap<s) continue;
+        days+=Math.round((cap-s)/86400000)+1;
+      }
+      if(days>0){setDays(days);return;}
+    }catch(_){}
+  }
+  setDays(FALLBACK);
+}
+function setDays(n){document.querySelectorAll('#days-at-sea').forEach(el=>el.innerHTML=n+'<sup>+</sup>');}
+countDaysAtSea();
+
+// ── Filter ──────────────────────────────────────────────────────────
+const filterBtns=document.querySelectorAll('.filter-btn');
+const cards=document.querySelectorAll('.content-card');
+function applyFilter(f){cards.forEach(c=>c.classList.toggle('hidden',c.dataset.type!==f));}
+applyFilter('Lecture');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(btn.dataset.filter);
+  });
+});
+
+// ── Content modal ────────────────────────────────────────────────────
+const overlay=document.getElementById('modalOverlay');
+const modalClose=document.getElementById('modalClose');
+cards.forEach(card=>{
+  card.addEventListener('click',()=>{
+    document.getElementById('modalLabel').textContent=card.dataset.place||'';
+    document.getElementById('modalTitle').textContent=card.dataset.title||'';
+    document.getElementById('modalMeta').textContent=card.dataset.badge||'';
+    document.getElementById('modalDesc').textContent=card.dataset.desc||'';
+    const ph=document.querySelector('#modalPhoto .modal-photo-ph');
+    if(card.dataset.img){
+      if(ph) ph.style.display='none';
+      let img=document.getElementById('modalImg');
+      if(!img){img=document.createElement('img');img.id='modalImg';document.getElementById('modalPhoto').appendChild(img);}
+      img.src=card.dataset.img; img.style.display='block';
+    } else {
+      if(ph) ph.style.display='';
+      const img=document.getElementById('modalImg');if(img) img.style.display='none';
+    }
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeModal(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+modalClose.addEventListener('click',closeModal);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+
+// Escape key for all panels
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeArt();closeModal();}});
+
+// ── Carousel ─────────────────────────────────────────────────────────
+const track=document.getElementById('carouselTrack');
+const slides=track?Array.from(track.children):[];
+const dotsWrap=document.getElementById('carouselDots');
+let cur=0,timer;
+if(slides.length){
+  slides.forEach((_,i)=>{
+    const d=document.createElement('button');
+    d.className='carousel-dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(d);
+  });
+  function goTo(n){
+    cur=(n+slides.length)%slides.length;
+    track.style.transform=`translateX(-${cur*100}%)`;
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    clearInterval(timer); timer=setInterval(()=>goTo(cur+1),5500);
+  }
+  document.getElementById('carouselPrev').addEventListener('click',()=>goTo(cur-1));
+  document.getElementById('carouselNext').addEventListener('click',()=>goTo(cur+1));
+  timer=setInterval(()=>goTo(cur+1),5500);
+  let tx=0;
+  track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goTo(dx<0?cur+1:cur-1);},{passive:true});
+}
+
+// ── Lazy loading via IntersectionObserver ────────────────────────────
+// Graceful fallback: if browser supports native lazy, this is bonus
+if('IntersectionObserver' in window){
+  const imgObs=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const img=entry.target;
+        if(img.dataset.src){img.src=img.dataset.src;}
+        img.classList.add('loaded');
+        obs.unobserve(img);
+      }
+    });
+  },{rootMargin:'200px'});
+  document.querySelectorAll('img.lazy').forEach(img=>{
+    // If native loading worked, just mark loaded; else observe
+    if(img.complete&&img.naturalWidth>0){img.classList.add('loaded');}
+    else{img.addEventListener('load',()=>img.classList.add('loaded'));imgObs.observe(img);}
+  });
+}
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelector('.nav-links');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
