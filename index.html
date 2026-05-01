@@ -262,10 +262,18 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 
 /* ── EXPERIENCE ── */
 .exp-note { font-family: var(--serif); font-size: 1rem; font-weight: 300; font-style: italic; line-height: 1.9; color: var(--stone); max-width: 480px; margin-bottom: 2.8rem; }
-.carousel { position:relative; overflow:hidden; border:1px solid rgba(45,79,60,0.12); background: var(--ice); }
+.carousel { position:relative; overflow:hidden; border:1px solid rgba(45,79,60,0.12); background: var(--ice);   max-width: 900px;  margin: 0 auto; }
 .carousel-track { display:flex; transition:transform 0.45s cubic-bezier(.4,0,.2,1); will-change:transform; }
-.carousel-slide { min-width:100%; aspect-ratio:16/9; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; background: var(--ice); }
-.carousel-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+.carousel-slide { min-width:100%; aspect-ratio:16/9; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; background: var(--snow-cold); }
+.carousel-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .carousel-slide-cap { position:absolute; bottom:0; left:0; right:0; padding: 1rem 1.4rem; background: linear-gradient(0deg, rgba(20,32,24,0.68), transparent); }
 .carousel-slide-cap-title { font-family: var(--serif); font-size: 0.95rem; font-style: italic; font-weight: 300; color: rgba(225,245,235,0.95); line-height: 1.4; }
 .carousel-slide-cap-sub { font-size: 0.62rem; color: rgba(170,210,192,0.7); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.25rem; }
@@ -426,20 +434,18 @@ img.lazy.loaded { opacity:1; }
   <p class="art-drawer-intro">Outside of science, I draw, paint, and make things. Watercolour, field sketching, textile — mostly made while travelling or between expeditions.</p>
   <div class="art-grid">
     <div class="art-slot">
-      <img src="image.png" alt="Art piece 1" class="lazy" loading="lazy">
-      <!-- fallback if no image -->
+      <img src="buttercup.jpeg" alt="Watercolor Buttercup" class="lazy" loading="lazy">
+    </div>
+	<div class="art-slot">
+      <img src="postcards.jpeg" alt="Postcard painting" class="lazy" loading="lazy">
+    </div>	
+	<div class="art-slot">
+      <img src="postcards2.jpeg" alt="Postcard painting" class="lazy" loading="lazy">
     </div>
     <div class="art-slot">
-      <img src="image.png" alt="Art piece 2" class="lazy" loading="lazy">
-    </div>
-    <div class="art-slot">
-      <img src="image.png" alt="Art piece 3" class="lazy" loading="lazy">
-    </div>
-    <div class="art-slot">
-      <img src="image.png" alt="Art piece 4" class="lazy" loading="lazy">
+      <img src="peony.jpeg" alt="Watercolor Peony" class="lazy" loading="lazy">
     </div>
   </div>
-  <p class="art-note">Images coming soon — replace each src with your artwork file paths.</p>
 </aside>
 
 <!-- NAV -->
@@ -497,27 +503,40 @@ img.lazy.loaded { opacity:1; }
 <section class="card-section about" id="about">
   <div class="inner">
     <span class="label">Background</span>
-    <h2>From Guadeloupe<br><em>to the polar ice</em></h2>
+    <h2>Volcanoes<br><em>and Ice Caps</em></h2>
     <div class="rule"></div>
     <div class="about-layout">
       <div class="about-body">
-        <p>I studied geophysics at EOST in Strasbourg before spending four years in Guadeloupe for my PhD — developing magnetic survey techniques by motorboat and drone to map the geothermal potential of a volcanic island. The fieldwork was complicated; the science was interesting; explaining both to people without a geophysics background turned out to be what I enjoyed most.</p>
-        <p>That thread ran through a postdoc at IPGS, a stint as sole geophysicist at Terremys, and parallel involvement in Ge-P-To, a Strasbourg outreach association co-founded with Earth science students in 2015. Since 2023, I've been doing it full-time aboard <a href="https://www.travelhx.com" target="_blank">Travel HX</a> vessels, in some of the most geologically interesting places on Earth.</p>
+        <p>I studied geophysics in Strasbourg (France) for my Engineering degree, and proceeded with a PhD with fieldwork in Guadeloupe — developing magnetic survey techniques by motorboat and drone to map the geothermal potential of this volcanic island.That thread carried through several postdocs in academia, before I joined a drone magnetic mapping start-up as their sole geophysicist, getting a real taste of the industry side of things. </p>
+        <p>
+		But alongside the research, a parallel passion was quietly taking shape: the urge to make science accessible, vivid, and worth caring about. Since 2023, I've been pursuing that full-time as a science communicator aboard <a href="https://www.travelhx.com" target="_blank">HX</a> vessels — bringing geology to life in some of the most extraordinary corners of the planet, from North to South, focusing on the polar regions. </p>
       </div>
     </div>
 
     <!-- Photo strip — replace src="image.png" with real paths -->
     <div class="photo-strip">
-      <div class="photo-slot">
-        <img src="image.png" alt="Zodiac operations in polar waters" class="lazy" loading="lazy" width="800" height="600">
-        <div class="photo-slot-label">Polar landing</div>
+       <div class="photo-slot">
+        <img src="lecture.jpg" alt="Onboard lecture" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Onboard lecture</div>
       </div>
-      <div class="photo-slot">
-        <img src="image.png" alt="On-location field lecture" class="lazy" loading="lazy" width="800" height="600">
-        <div class="photo-slot-label">Field lecture</div>
+	  <div class="photo-slot">
+        <img src="workshop.jpg" alt="Workshop example" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Hands-on Workshop</div>
       </div>
+	  <div class="photo-slot">
+        <img src="rough.jpeg" alt="Operations in polar regions" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Operations in polar regions</div>
+      </div>
+	  <div class="photo-slot">
+        <img src="tierrafuego.jpeg" alt="Field interpretation" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">On-site interpretation, landscapes, rocks, fauna and flora</div>
+      </div>
+	  <div class="photo-slot">
+        <img src="zodiac2.jpeg" alt="Zodiac operations" class="lazy" loading="lazy" width="800" height="600">
+        <div class="photo-slot-label">Zodiac driving</div>
+      </div>	
       <div class="photo-slot">
-        <img src="image.png" alt="Expedition guiding — Travel HX" class="lazy" loading="lazy" width="800" height="600">
+        <img src="guide.jpg" alt="Expedition guiding — Travel HX" class="lazy" loading="lazy" width="800" height="600">
         <div class="photo-slot-label">Travel HX · 2023–present</div>
       </div>
     </div>
@@ -574,32 +593,32 @@ img.lazy.loaded { opacity:1; }
     <span class="label">Experience</span>
     <h2>A short history<br><em>in places and projects</em></h2>
     <div class="rule"></div>
-    <p class="exp-note">From volcanic islands to drone surveys to the polar ice — illustrated with images from the field and maps produced along the way.</p>
+    <p class="exp-note">From volcanic islands to drone surveys to the polar ice — illustrated with images from the field and maps produced along the way. Here is a gallery of me doing things.</p>
 
     <div class="carousel" id="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-slide">
-          <img src="image.png" alt="Drone magnetic survey — Guadeloupe PhD fieldwork" class="lazy" loading="lazy" width="1600" height="900">
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Drone magnetic survey — Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork · Basse-Terre · 2015–2019</div></div>
+          <img src="geophy-guad.JPG" alt="Guadeloupe PhD fieldwork" class="lazy" loading="eager" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork · Basse-Terre · 2015–2019</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="image.png" alt="Geophysical interpretation map" class="lazy" loading="lazy" width="1600" height="900">
+          <img src="zodiac.jpg" alt="Geophysical interpretation map" class="lazy" loading="lazy">
           <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Geophysical interpretation map</div><div class="carousel-slide-cap-sub">Basse-Terre magnetic cartography</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="image.png" alt="Terremys drone survey operations" class="lazy" loading="lazy" width="1600" height="900">
+          <img src="landing2.jpeg" alt="Terremys drone survey operations" class="lazy" loading="lazy">
           <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Terremys drone survey operations</div><div class="carousel-slide-cap-sub">Geophysical mapping · 2020–2022</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="image.png" alt="Zodiac guiding in polar waters" class="lazy" loading="lazy" width="1600" height="900">
+          <img src="image.png" alt="Zodiac guiding in polar waters" class="lazy" loading="lazy">
           <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding — polar waters</div><div class="carousel-slide-cap-sub">Travel HX · Arctic / Antarctica</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="image.png" alt="Onboard lecture" class="lazy" loading="lazy" width="1600" height="900">
+          <img src="image.png" alt="Onboard lecture" class="lazy" loading="lazy" >
           <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Onboard lecture</div><div class="carousel-slide-cap-sub">Travel HX · 2023–present</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="image.png" alt="Polar landing — Svalbard" class="lazy" loading="lazy" width="1600" height="900">
+          <img src="image.png" alt="Polar landing — Svalbard" class="lazy" loading="lazy">
           <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar landing — Svalbard</div><div class="carousel-slide-cap-sub">Expedition guiding · Svalbard / Greenland</div></div>
         </div>
       </div>
@@ -745,41 +764,9 @@ artClose.addEventListener('click', closeArt);
 drawerOverlay.addEventListener('click', closeArt);
 
 // ── Days at sea ─────────────────────────────────────────────────────
-async function countDaysAtSea() {
-  const ID='9d0041d0bd3a', TOKEN='fd0c02b0836f73ee97e09cf571812d719641b80f', FALLBACK=425;
-  const today=new Date(); today.setHours(0,0,0,0);
-  const urls=[
-    `https://app.yearful.io/api/calendars/${ID}/events?accessToken=${TOKEN}`,
-    `https://app.yearful.io/api/v1/calendars/${ID}?accessToken=${TOKEN}`,
-    `https://app.yearful.io/calendars/${ID}.json?accessToken=${TOKEN}`,
-  ];
-  for(const url of urls){
-    try{
-      const r=await fetch(url,{headers:{Accept:'application/json'}});
-      if(!r.ok) continue;
-      const data=await r.json();
-      const events=data.events||data.data||(Array.isArray(data)?data:[]);
-      if(!Array.isArray(events)||!events.length) continue;
-      let days=0;
-      for(const ev of events){
-        const t=(ev.title||ev.name||ev.summary||'').toLowerCase();
-        if(!t.includes('jeanne')||!t.includes('bord')) continue;
-        const s=new Date(ev.start_date||ev.start||ev.startDate);
-        const e=new Date(ev.end_date||ev.end||ev.endDate);
-        if(isNaN(s)||isNaN(e)) continue;
-        const cap=e>today?today:e;
-        if(cap<s) continue;
-        days+=Math.round((cap-s)/86400000)+1;
-      }
-      if(days>0){setDays(days);return;}
-    }catch(_){}
-  }
-  setDays(FALLBACK);
-}
-function setDays(n){document.querySelectorAll('#days-at-sea').forEach(el=>el.innerHTML=n+'<sup>+</sup>');}
-countDaysAtSea();
 
-// ── Filter ──────────────────────────────────────────────────────────
+
+// ── Content modal ────────────────────────────────────────────────────
 const filterBtns=document.querySelectorAll('.filter-btn');
 const cards=document.querySelectorAll('.content-card');
 function applyFilter(f){cards.forEach(c=>c.classList.toggle('hidden',c.dataset.type!==f));}
@@ -791,8 +778,6 @@ filterBtns.forEach(btn=>{
     applyFilter(btn.dataset.filter);
   });
 });
-
-// ── Content modal ────────────────────────────────────────────────────
 const overlay=document.getElementById('modalOverlay');
 const modalClose=document.getElementById('modalClose');
 cards.forEach(card=>{
@@ -837,13 +822,15 @@ if(slides.length){
   });
   function goTo(n){
     cur=(n+slides.length)%slides.length;
-    track.style.transform=`translateX(-${cur*100}%)`;
+    const w=slides[0].offsetWidth;
+    track.style.transform=`translateX(-${cur*w}px)`;
     dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
     clearInterval(timer); timer=setInterval(()=>goTo(cur+1),5500);
   }
   document.getElementById('carouselPrev').addEventListener('click',()=>goTo(cur-1));
   document.getElementById('carouselNext').addEventListener('click',()=>goTo(cur+1));
-  timer=setInterval(()=>goTo(cur+1),5500);
+  window.addEventListener('load',()=>{ timer=setInterval(()=>goTo(cur+1),5500); });
+  window.addEventListener('resize',()=>goTo(cur));
   let tx=0;
   track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
   track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goTo(dx<0?cur+1:cur-1);},{passive:true});
