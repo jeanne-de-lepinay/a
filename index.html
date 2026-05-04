@@ -19,6 +19,7 @@ html { scroll-behavior: smooth; }
   --glacier:    #8fb5c5;
   --fjord:      #6898aa;
   --fjord-deep: #4a7585;
+  --fjord-green: #447070;
   --pine:       #2d4f3c;
   --pine-deep:  #1c3228;
   --pine-mid:   #3a6350;
@@ -133,7 +134,7 @@ h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
 .hero-subtitle { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-light); font-weight: 300; margin-bottom: 2.8rem; line-height: 2; }
 .hero-subtitle span { color: var(--teal); }
 .hero-lead { font-family: var(--serif); font-size: 1.08rem; font-weight: 300; line-height: 1.9; color: var(--ink-mid); max-width: 380px; }
-.hero-right { position: relative; overflow: hidden; background: var(--ice); height: 180vw; }
+.hero-right { position: relative; overflow: hidden; background: var(--ice); }
 .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .hero-rule {
   position: relative;
@@ -189,6 +190,15 @@ h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
   border-color: rgba(90,170,136,0.12);
   color: rgba(215,235,225,0.85);
 }
+/* Certs gets its own colour, stays as a card */
+.card-section.certs {
+  background: var(--fjord-green);
+  border-color: rgba(143,181,197,0.15);
+}
+.card-section.certs .label { color: rgba(200,225,235,0.7); }
+.card-section.certs h2 { color: #e8f4f8; }
+.card-section.certs h2 em { color: rgba(200,225,235,0.45); }
+.card-section.certs .rule { background: rgba(143,181,197,0.3); }
 
 /* Footer card — compact */
 .card-section.footer-card {
@@ -233,57 +243,51 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 
 /* ── QUALIFICATIONS ── */
 .certs-outer { display: grid; grid-template-columns: 1fr 250px; gap: 3rem; }
-.cert-group { margin-bottom: 1.5rem;   
-  background: rgba(244,241,234,0.97); 
-  border: 1px solid rgba(45,79,60,0.1);
-  padding: 1.5rem;}
-.cert-group-full {
-  margin-top: 1.5rem;
-  background: rgba(244,241,234,0.97);
-  border: 1px solid rgba(45,79,60,0.1);
-  padding: 1.5rem;
-}
-.cert-group-title { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(45,79,60,0.1); }
-.cert-badges { display: flex; flex-wrap: wrap; gap: 1rem 0.9rem; justify-content: center;   max-width: 600px;
-  margin: 0 auto; }
+
+.cert-group { margin-bottom: 1.5rem; background: var(--mist); border: 1px solid rgba(74,117,133,0.25); padding: 1.5rem; }
+.cert-group-full { margin-top: 1.5rem; background: var(--mist); border: 1px solid rgba(74,117,133,0.25); padding: 1.5rem; }
+
+.cert-group-title { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(25,32,25,0.15); }
+
+.cert-badges { display: flex; flex-wrap: wrap; gap: 1rem 0.9rem; justify-content: center; max-width: 600px; margin: 0 auto; }
 .cert-badge { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; width: 74px; text-align: center; flex-shrink: 0; }
-.cert-icon-wrap { width: 58px; height: 58px; background: rgba(47,114,96,0.05); border: 1px solid rgba(47,114,96,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: border-color 0.25s, background 0.25s; }
-.cert-icon-wrap svg { width:27px; height:27px; stroke: rgba(47,114,96,0.5); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.25s; }
-.cert-badge:hover .cert-icon-wrap { border-color: rgba(47,114,96,0.4); background: rgba(47,114,96,0.09); }
-.cert-badge:hover svg { stroke: var(--teal); }
-.cert-badge-name { font-size: 0.68rem; color: var(--ink-light); line-height: 1.35; }
-.learn-more-link { display:flex; justify-content: center; align-items:center; gap:0.45rem; font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); text-decoration:none; margin-top:2rem; padding-bottom:0.12rem; transition:all 0.2s; }
-.learn-more-link:hover { border-color: var(--teal); }
+.cert-badge-name { font-size: 0.68rem; color: #2a3d4a; line-height: 1.35; }
+
+.cert-icon-wrap { width: 58px; height: 58px; border-radius: 50%; border: 1px solid rgba(74,117,133,0.3); background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; transition: border-color 0.25s, background 0.25s; }
+.cert-icon-wrap svg { width: 27px; height: 27px; stroke: var(--fjord); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.25s; }
+.cert-badge:hover .cert-icon-wrap { border-color: rgba(74,117,133,0.5); background: rgba(255,255,255,0.25); }
+.cert-badge:hover svg { stroke: var(--fjord-deep); }
+
+.learn-more-link { display: flex; justify-content: center; align-items: center; gap: 0.45rem; font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; margin-top: 2rem; padding-bottom: 0.12rem; border-bottom: 1px solid rgba(25,32,25,0.25); transition: all 0.2s; }
+.learn-more-link:hover { opacity: 0.7; }
 .learn-more-link::after { content: '↓'; font-size: 0.72rem; }
-.lang-panel-title { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(45,79,60,0.1); }
-.lang-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(45,79,60,0.08); }
+
+.lang-panel-title { font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(45,79,60,0.1); }
+.lang-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(25,32,25,0.12); }
 .lang-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--ink); }
-.lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+.lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); }
 
 /* ── EXPERIENCE ── */
 .exp-note { font-family: var(--serif); font-size: 1rem; font-weight: 300; font-style: italic; line-height: 1.9; color: var(--stone); max-width: 480px; margin-bottom: 2.8rem; }
-.carousel { position:relative; overflow:hidden; border:1px solid rgba(45,79,60,0.12); background: var(--ice);   max-width: 900px;  margin: 0 auto; }
-.carousel-track { display:flex; transition:transform 0.45s cubic-bezier(.4,0,.2,1); will-change:transform; }
-.carousel-slide { min-width:100%; aspect-ratio:16/9; position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; background: var(--snow-cold); }
-.carousel-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.carousel-slide-cap { position:absolute; bottom:0; left:0; right:0; padding: 1rem 1.4rem; background: linear-gradient(0deg, rgba(20,32,24,0.68), transparent); }
-.carousel-slide-cap-title { font-family: var(--serif); font-size: 0.95rem; font-style: italic; font-weight: 300; color: rgba(225,245,235,0.95); line-height: 1.4; }
-.carousel-slide-cap-sub { font-size: 0.62rem; color: rgba(170,210,192,0.7); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.25rem; }
-.carousel-ph-icon { font-size:2.2rem; opacity:0.12; }
-.carousel-ph-text { font-size:0.6rem; color:var(--stone); letter-spacing:0.1em; text-transform:uppercase; text-align:center; padding:0 2rem; margin-top:0.6rem; line-height:1.5; }
-.carousel-controls { display:flex; align-items:center; justify-content:space-between; padding:0.8rem 1.1rem; background: rgba(45,79,60,0.04); border-top:1px solid rgba(45,79,60,0.1); }
-.carousel-btn { background:none; border:1px solid rgba(45,79,60,0.18); color:var(--ink-mid); cursor:pointer; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.85rem; transition:all 0.22s; }
+
+.carousel { position: relative; overflow: hidden; isolation: isolate; border: 1px solid rgba(45,79,60,0.12); background: var(--ice); max-width: 900px; margin: 0 auto; }
+.carousel-track { display: flex; width: 100%; transition: transform 0.45s cubic-bezier(.4,0,.2,1); will-change: transform; }
+.carousel-slide { min-width: 100%; flex-shrink: 0; aspect-ratio: 16/9; position: relative; overflow: hidden; background: var(--snow-cold); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.carousel-slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.carousel-slide-cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.4rem 1.2rem; background: linear-gradient(0deg, rgba(10,18,14,0.85) 0%, rgba(10,18,14,0.4) 60%, transparent 100%); }
+.carousel-slide-cap-title { font-family: var(--serif); font-size: 0.95rem; font-style: italic; font-weight: 300; color: #fff; line-height: 1.4; }
+.carousel-slide-cap-sub { font-size: 0.62rem; color: rgba(220,240,232,0.85); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.25rem; }
+
+.carousel-ph-icon { font-size: 2.2rem; opacity: 0.12; }
+.carousel-ph-text { font-size: 0.6rem; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 0 2rem; margin-top: 0.6rem; line-height: 1.5; }
+
+.carousel-controls { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.1rem; background: rgba(45,79,60,0.04); border-top: 1px solid rgba(45,79,60,0.1); }
+.carousel-btn { background: none; border: 1px solid rgba(45,79,60,0.18); color: var(--ink-mid); cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: all 0.22s; }
 .carousel-btn:hover { border-color: var(--ink-mid); }
-.carousel-dots { display:flex; gap:0.45rem; }
-.carousel-dot { width:5px; height:5px; border-radius:50%; background: rgba(45,79,60,0.18); cursor:pointer; transition:background 0.2s; border:none; padding:0; }
+
+.carousel-dots { display: flex; gap: 0.45rem; }
+.carousel-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(45,79,60,0.18); cursor: pointer; transition: background 0.2s; border: none; padding: 0; }
 .carousel-dot.active { background: var(--pine-mid); }
 
 /* ── LECTURES ── */
@@ -408,7 +412,7 @@ img.lazy.loaded { opacity:1; }
   .nav-links { gap:0.3rem; }
   .hero { grid-template-columns:1fr; min-height:auto; }
   .hero-left { padding:9rem 1.5rem 3.5rem; }
-  .hero-right { height:70vw; max-height:480px; }
+  .hero-right { height:90vw; max-height:480px; }
   .cards-wrap { padding: 1.5rem 1rem 0; gap: 1rem; }
   .card-section { padding: 3.5rem 1.8rem; }
   .footer-card { padding: 1.2rem 1.8rem; }
@@ -458,7 +462,7 @@ img.lazy.loaded { opacity:1; }
     <li><a href="#about">Background</a></li>
     <li><a href="#certs">Qualifications</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#lectures">Content</a></li>
+    <li><a href="#lectures">My Content</a></li>
 	<li><a href="#climate">Climate Change</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#" class="nav-atelier" id="artTab" role="button">Atelier</a></li>
@@ -532,7 +536,7 @@ img.lazy.loaded { opacity:1; }
         <div class="photo-slot-label">On-site interpretation, landscapes, rocks, fauna and flora</div>
       </div>
 	  <div class="photo-slot">
-        <img src="zodiac2.jpeg" alt="Zodiac operations" class="lazy" loading="lazy" width="800" height="600">
+        <img src="zodiacdriver.jpeg" alt="Zodiac operations" class="lazy" loading="lazy" width="800" height="600">
         <div class="photo-slot-label">Zodiac driving</div>
       </div>	
       <div class="photo-slot">
@@ -547,7 +551,7 @@ img.lazy.loaded { opacity:1; }
 <section class="card-section certs" id="certs">
   <div class="inner">
     <span class="label">Qualifications</span>
-    <h2>Certifications<br><em>and languages</em></h2>
+    <h2>Qualifications, Languages<br><em>and Certifications</em></h2>
     <div class="rule"></div>
 
     <div class="certs-outer">
@@ -593,34 +597,127 @@ img.lazy.loaded { opacity:1; }
     <span class="label">Experience</span>
     <h2>A short history<br><em>in places and projects</em></h2>
     <div class="rule"></div>
-    <p class="exp-note">From volcanic islands to drone surveys to the polar ice — illustrated with images from the field and maps produced along the way. Here is a gallery of me doing things.</p>
+    <p style="color:var(--ink-mid);font-size:0.92rem;margin-bottom:2.2rem;line-height:1.88;"> From volcanic islands to drone surveys to the polar ice — illustrated with images from the field and maps produced along the way. Here is a gallery of me doing things.</p>
 
     <div class="carousel" id="carousel">
       <div class="carousel-track" id="carouselTrack">
-        <div class="carousel-slide">
-          <img src="geophy-guad.JPG" alt="Guadeloupe PhD fieldwork" class="lazy" loading="eager" >
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork · Basse-Terre · 2015–2019</div></div>
+	           <div class="carousel-slide">
+          <img src="landscape.jpeg" alt="Landscape picture" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Expedition Guide and Lecturer</div><div class="carousel-slide-cap-sub">Travel HX · Arctic / Antarctica · 2023 - present </div></div>
+        </div>
+         <div class="carousel-slide">
+          <img src="zodiac.jpg" alt="Zodiac guiding in polar waters" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding — polar waters</div><div class="carousel-slide-cap-sub">On-site zodiac interpretation</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="zodiac.jpg" alt="Geophysical interpretation map" class="lazy" loading="lazy">
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Geophysical interpretation map</div><div class="carousel-slide-cap-sub">Basse-Terre magnetic cartography</div></div>
+          <img src="lecture.jpg" alt="Onboard lecture" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Onboard lecture</div><div class="carousel-slide-cap-sub">Varied number of lectures and content format</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="deception.jpeg" alt="On-site interpretation" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">On-site interpretation</div><div class="carousel-slide-cap-sub">On-site discussion sharing my passion for geology to guests and colleagues (Deception Island, South Shetland Islands).</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="fieldinterp.jpeg" alt="On-site interpretation (to another guide)" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">On-site interpretation</div><div class="carousel-slide-cap-sub">On-site discussion sharing my passion for geology to guests and colleagues (Red Rock Ridge, Antarctic Peninsula).</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="clouds1.jpeg" alt="Workshop for NASA Globe Observer Clouds program" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Workshops</div><div class="carousel-slide-cap-sub">Workshop for NASA Globe Observer Clouds program, observing clouds outside on deck in sunny Antarctica.</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="iceicebaby.jpeg" alt="Explaining Ice" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop</div><div class="carousel-slide-cap-sub">Explaining different types of ice and the evolution of the global cryosphere</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="insideice.jpeg" alt="Explaining Ice" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop</div><div class="carousel-slide-cap-sub">Explaining different types of ice and the evolution of the global cryosphere</div></div>
+        </div>
+			<div class="carousel-slide">
+          <img src="ilulissat.jpeg" alt="Explaining Ice in Ilulissat" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop Outside</div><div class="carousel-slide-cap-sub">No better way to understand the cryosphere than to see it for yourself...</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="postcards2.jpeg" alt="Artistic break - watercolor painting postcards" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Artistic break</div><div class="carousel-slide-cap-sub">I will always ensure that your artistic self is as well fed as your nerdy self</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="landing2.jpeg" alt="Terremys drone survey operations" class="lazy" loading="lazy">
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Terremys drone survey operations</div><div class="carousel-slide-cap-sub">Geophysical mapping · 2020–2022</div></div>
+          <img src="landing2.jpeg" alt="Polar landing" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar landing</div><div class="carousel-slide-cap-sub">Expedition guiding · Arctic and Antarctic Peninsula</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="rifle.jpeg" alt="Polar bear training in Norway class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">HX polar bear training</div><div class="carousel-slide-cap-sub">Travel HX provides award-winning training for Arctic Polar Bear protection: spotting, reacting and handling firearms.</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="icelanding.jpeg" alt="Ice landing" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar ice landing</div><div class="carousel-slide-cap-sub">Ice landing in Antarctica and in the Arctic (North Greenland)</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="zodiacguide.jpeg" alt="On-site interpretation - getting close to the rocks" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding as a geologist</div><div class="carousel-slide-cap-sub">The geologist driving your zodiac will always go the extra mile so you can take a look at the cool rocks - and tell you why it's cool.</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="zodiac2.jpeg" alt="Zodiac driving in polar conditions" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac driving in polar regions</div><div class="carousel-slide-cap-sub">Polar regions imply snow, sea ice, iebergs, potential calving and sometimes rough or unpredictable conditions</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="camping.jpeg" alt="Setting camp in Antarctica" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Camping on Antarctic snow</div><div class="carousel-slide-cap-sub">Setting camp in Antarctica. No camping in the Arctic, where the polar bear roams.</div></div>
+        </div>
+		<div class="carousel-slide">
+          <img src="hike.jpeg" alt="Hike in Uummannaq" class="lazy" loading="lazy" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Hikes and Nature Walks</div><div class="carousel-slide-cap-sub">Guiding can involve leading nature walks and hikes (here is Uummannaq, West Greenland)</div></div>
+        </div>
+		
+		<div class="carousel-slide">
+          <img src="terremys.jpeg" alt="Terremys geophysical drone surveys" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Terremys</div><div class="carousel-slide-cap-sub">I spent 2 years as Terremys' geophysicist, organising and processing magnetic drone surveys.</div></div>
+        </div>
+		 <div class="carousel-slide">
+          <img src="terremys-pres.jpeg" alt="Terremys AGAP Qualité congress" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Presentations with Terremys</div><div class="carousel-slide-cap-sub">Scientific work comes with its load of science communication in different conferences and meetings.</div></div>
         </div>
         <div class="carousel-slide">
-          <img src="image.png" alt="Zodiac guiding in polar waters" class="lazy" loading="lazy">
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding — polar waters</div><div class="carousel-slide-cap-sub">Travel HX · Arctic / Antarctica</div></div>
+          <img src="terremys-pres2.jpeg" alt="Terremys Presentation to High School students" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Presentations with Terremys - High School</div><div class="carousel-slide-cap-sub">All girls high school students discovering geophysics.</div></div>
         </div>
-        <div class="carousel-slide">
-          <img src="image.png" alt="Onboard lecture" class="lazy" loading="lazy" >
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Onboard lecture</div><div class="carousel-slide-cap-sub">Travel HX · 2023–present</div></div>
+
+	    <div class="carousel-slide">
+          <img src="gepeto.jpeg" alt="Geoscience communication" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Geoscience communication</div><div class="carousel-slide-cap-sub">Geoscience communication for adults and children, international Mineral and Gem fair, Sainte-Marie-aux-Mines, 2015-2018.</div></div>
         </div>
-        <div class="carousel-slide">
-          <img src="image.png" alt="Polar landing — Svalbard" class="lazy" loading="lazy">
-          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar landing — Svalbard</div><div class="carousel-slide-cap-sub">Expedition guiding · Svalbard / Greenland</div></div>
+
+		<div class="carousel-slide">
+          <img src="these.jpg" alt="PhD Defense" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">PhD defense.</div><div class="carousel-slide-cap-sub">April 29th, 2019.</div></div>
         </div>
+		<div class="carousel-slide">
+          <img src="slide.png" alt="Slide from PhD presentation" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">PhD defense</div><div class="carousel-slide-cap-sub">Slide extracted from my PhD presentation.</div></div>
+        </div>
+				<div class="carousel-slide">
+          <img src="archaeo.jpg" alt="Palestine archaeological field" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Archaeology</div><div class="carousel-slide-cap-sub">Archaeological survey in Hebron region, Palestine (Tell Qilah), 2017. Find me!</div></div>
+        </div>		
+				<div class="carousel-slide">
+          <img src="guadeloupe-drone.jpg" alt="Drone survey in Guadeloupe" class="lazy" loading="lazy">
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Drone Survey in Guadeloupe, 2017 & 2018</div>
+		  <div class="carousel-slide-cap-sub">Basse-Terre magnetic cartography by drone</div></div>
+        </div>
+		       <div class="carousel-slide">
+          <img src="rocks-guad.jpg" alt="Guadeloupe PhD fieldwork" class="lazy" loading="eager" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork (small-scale data acquisition) · Basse-Terre · 2016</div></div>
+        </div>
+				       <div class="carousel-slide">
+          <img src="geophy-guad2.JPG" alt="Guadeloupe PhD fieldwork" class="lazy" loading="eager" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork (study of outcrop's physical characteristics) · Basse-Terre · 2015</div></div>
+        </div>
+				       <div class="carousel-slide">
+          <img src="geophy-guad.JPG" alt="Guadeloupe PhD first fieldwork" class="lazy" loading="eager" >
+          <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD first fieldwork (data acquisition) · Basse-Terre · 2015</div></div>
+        </div>
+		
       </div>
       <div class="carousel-controls">
         <button class="carousel-btn" id="carouselPrev" aria-label="Previous">‹</button>
@@ -822,15 +919,14 @@ if(slides.length){
   });
   function goTo(n){
     cur=(n+slides.length)%slides.length;
-    const w=slides[0].offsetWidth;
-    track.style.transform=`translateX(-${cur*w}px)`;
+    const w=Math.round(slides[0].offsetWidth);
+	track.style.transform=`translateX(-${cur*100}%)`;
     dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
     clearInterval(timer); timer=setInterval(()=>goTo(cur+1),5500);
   }
   document.getElementById('carouselPrev').addEventListener('click',()=>goTo(cur-1));
   document.getElementById('carouselNext').addEventListener('click',()=>goTo(cur+1));
   window.addEventListener('load',()=>{ timer=setInterval(()=>goTo(cur+1),5500); });
-  window.addEventListener('resize',()=>goTo(cur));
   let tx=0;
   track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
   track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goTo(dx<0?cur+1:cur-1);},{passive:true});
