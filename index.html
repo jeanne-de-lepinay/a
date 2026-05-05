@@ -266,16 +266,6 @@ h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
   color: rgba(215,235,225,0.85);
 }
 
-.card-section.certs {
-  background: rgba(68, 112, 112, 0.2);;
-  border-color: rgba(143,181,197,0.15);
-}
-
-.card-section.certs .label { color: rgba(200,225,235,0.7); }
-.card-section.certs h2    { color: #e8f4f8; }
-.card-section.certs h2 em { color: rgba(200,225,235,0.45); }
-.card-section.certs .rule { background: rgba(143,181,197,0.3); }
-
 .card-section.contact { margin-bottom: 40rem; }
 
 .card-section.footer-card {
@@ -346,7 +336,7 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 }
 
 /* ── PHOTO STRIP ── */
-.photo-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; margin-top: 4rem; }
+.photo-strip { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; margin-top: 2.5rem; }
 
 .photo-slot { aspect-ratio: 4/3; background: var(--snow-dark); position: relative; overflow: hidden; }
 
@@ -372,10 +362,10 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 
 .link-slot-overlay {
   position: absolute; inset: 0;
-  background: rgba(40,50,50,0.6);
+  background: rgba(28,50,40,0.52);
   transition: background 0.2s;
 }
-.photo-slot.link-slot:hover .link-slot-overlay { background: rgba(40,50,50,0.4); }
+.photo-slot.link-slot:hover .link-slot-overlay { background: rgba(28,50,40,0.32); }
 .link-slot-content {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
@@ -383,20 +373,12 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   gap: 0.4rem;
   z-index: 1;
 }
-.link-slot-arrow { font-size: 1.1rem; color: #fff; }
-.link-slot-text {
-  font-size: 0.7rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: rgba(255,255,255,0.85);
-  text-align: center; line-height: 1.5;
-}
-.link-slot .link-slot-text,
-.link-slot .link-slot-arrow {
-  color: rgba(242,239,232,0.85); font-size: 0.8rem; 
-}
-.link-slot:hover .link-slot-text,
-.link-slot:hover .link-slot-arrow {
-  color: #fff;
-}
+.link-slot .link-slot-arrow,
+.link-slot .link-slot-text { color: rgba(242,239,232,0.9); }
+.link-slot-arrow { font-size: 1.1rem; }
+.link-slot-text { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; line-height: 1.5; }
+.link-slot:hover .link-slot-arrow,
+.link-slot:hover .link-slot-text { color: #fff; }
 
 .gbit-sub-label {
   font-size: 0.6rem;
@@ -416,7 +398,7 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   padding: 1.5rem;
 }
 
-.cert-group-full { margin-top: 1.5rem; }
+.cert-group-full { margin-bottom: 2.5rem; }
 
 .cert-group-title,
 .lang-panel-title {
@@ -505,25 +487,6 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 .lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
 
 /* ── AT SEA — tabbed carousel ── */
-.atsea-intro {
-  font-family: var(--serif);
-  font-size: 1rem;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.9;
-  color: var(--stone);
-  max-width: 480px;
-  margin-bottom: 2rem;
-}
-
-.atsea-meta {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  margin-bottom: 2.2rem;
-}
-
 .tab-row {
   display: flex;
   gap: 0;
@@ -646,120 +609,6 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 }
 
 .carousel-dot.active { background: var(--pine-mid); }
-/* ── TIMELINE ── */
-.timeline-intro {
-  font-size: 0.92rem;
-  line-height: 1.88;
-  color: var(--ink-mid);
-  margin-bottom: 3rem;
-}
-
-.timeline { display: flex; flex-direction: column; }
-
-.tl-chapter {
-  display: grid;
-  grid-template-columns: 100px 1px 1fr;
-  gap: 0 2rem;
-  padding-bottom: 2.8rem;
-}
-
-.tl-chapter:last-child { padding-bottom: 0; }
-
-.tl-date {
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  text-align: right;
-  padding-top: 0.15rem;
-  line-height: 1.5;
-}
-
-.tl-spine { display: flex; flex-direction: column; align-items: center; }
-
-.tl-dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  border: 1.5px solid var(--teal);
-  background: var(--snow);
-  flex-shrink: 0;
-  margin-top: 0.05rem;
-}
-
-.tl-dot.dim { border-color: var(--ink-light); }
-
-.tl-line {
-  width: 1px;
-  flex: 1;
-  background: rgba(45,79,60,0.15);
-  margin-top: 6px;
-}
-
-.tl-body { padding-bottom: 0.2rem; }
-
-.tl-role {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--ink);
-  margin-bottom: 0.15rem;
-  line-height: 1.25;
-}
-
-.tl-employer {
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 0.7rem;
-}
-
-.tl-desc {
-  font-size: 0.88rem;
-  color: var(--ink-mid);
-  line-height: 1.82;
-  margin-bottom: 1rem;
-}
-
-.tl-photos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3px;
-}
-
-.tl-photo {
-  aspect-ratio: 4/3;
-  background: var(--snow-dark);
-  position: relative;
-  overflow: hidden;
-}
-
-.tl-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease, filter 0.4s;
-  filter: saturate(0.85);
-}
-
-.tl-photo:hover img { transform: scale(1.04); filter: saturate(1); }
-
-.tl-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--teal);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(47,114,96,0.25);
-  padding-bottom: 0.1rem;
-  transition: all 0.2s;
-}
-
-.tl-link:hover { border-color: var(--teal); }
-.tl-link::after { content: '↑'; font-size: 0.7rem; }
 /* ── GOING BACK IN TIME — horizontal gallery timeline ── */
 .gbit-divider {
   height: 1px;
@@ -971,32 +820,9 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 
 /* link slot in photo strip */
 .photo-slot.link-slot {
-  background: rgba(47,114,96,0.05);
-  border: 1px solid rgba(47,114,96,0.22);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s;
-}
-
-.photo-slot.link-slot:hover { background: rgba(47,114,96,0.1); }
-
-.link-slot-arrow {
-  font-size: 1.1rem;
-  color: var(--teal);
-}
-
-.link-slot-text {
-  font-size: 0.58rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--teal);
-  text-align: center;
-  line-height: 1.5;
 }
 
 .gbit-hidden { display: none; }
@@ -1349,9 +1175,6 @@ img.lazy.loaded { opacity: 1; }
   .content-grid { grid-template-columns: 1fr; }
   .photo-strip { grid-template-columns: 1fr 1fr; }
 
-  .tl-chapter { grid-template-columns: 72px 1px 1fr; gap: 0 1.2rem; }
-  .tl-photos { grid-template-columns: 1fr 1fr; }
-  .tl-photos .tl-photo:last-child { display: none; }
 
   footer { flex-direction: column; gap: 0.5rem; text-align: center; }
 
@@ -1407,8 +1230,7 @@ img.lazy.loaded { opacity: 1; }
   </button>
   <ul class="nav-links">
     <li><a href="#about">Background</a></li>
-    <li><a href="#atsea">At sea</a></li>
-	<li><a href="#certs">Qualifications</a></li>
+    <li><a href="#myjob">My job</a></li>
     <li><a href="#lectures">My Content</a></li>
     <li><a href="#climate">Climate Change</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1463,6 +1285,7 @@ img.lazy.loaded { opacity: 1; }
         <div class="about-body">
           <p>I studied geophysics in Strasbourg (France) for my Engineering degree, and proceeded with a PhD with fieldwork in Guadeloupe — developing magnetic survey techniques by motorboat and drone to map the geothermal potential of this volcanic island. That thread carried through several postdocs in academia, before I joined a drone magnetic mapping start-up as their sole geophysicist, getting a real taste of the industry side of things.</p>
           <p>But alongside the research, a parallel passion was quietly taking shape: the urge to make science accessible, vivid, and worth caring about. Since 2023, I've been pursuing that full-time as a science communicator aboard <a href="https://www.travelhx.com" target="_blank">HX</a> vessels — bringing geology to life in some of the most extraordinary corners of the planet, from North to South, focusing on the polar regions.</p>
+		  <p> <a href='#myjob'>Find out more about my current job and qualifications →</a></p>
         </div>
       </div>
 
@@ -1633,13 +1456,12 @@ img.lazy.loaded { opacity: 1; }
     </div>
   </section>
 
-  <!-- AT SEA -->
-  <section class="card-section atsea" id="atsea">
+  <!-- MY JOB -->
+  <section class="card-section" id="myjob">
     <div class="inner">
-      <span class="label">At sea</span>
-      <h2>Life on board<br><em>A variety of roles</em></h2>
+      <span class="label">Operational and communication qualifications</span>
+      <h2>What I do &amp; Life on board<br><em>A variety of roles</em></h2>
       <div class="rule"></div>
-      <!-- <p class="atsea-intro">Here are some roles I cover on ships - or things I do onboard...</p> -->
 
       <div class="tab-row">
 	    <button class="tab-btn active" data-tab="ops">Operational</button>
@@ -1728,37 +1550,12 @@ img.lazy.loaded { opacity: 1; }
           <button class="carousel-btn" id="carouselNext" aria-label="Next">›</button>
         </div>
       </div>
-    </div>
-  </section>
 
- <!-- QUALIFICATIONS -->
-  <section class="card-section certs" id="certs">
-    <div class="inner">
-      <span class="label">Qualifications</span>
-      <h2>Qualifications, Languages<br><em>and Certifications</em></h2>
-      <div class="rule"></div>
+      <div style="height:1px;background:rgba(45,79,60,0.1);margin:3rem 0 2.5rem;"></div>
+      <span class="label" style="margin-bottom:2rem;display:block;">Maritime &amp; field certifications · Languages · Science communication</span>
 
-      <div class="certs-outer">
-        <div class="cert-group">
-          <div class="cert-group-title">Science communication</div>
-          <div class="cert-badges">
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="cert-badge-name">Lectures & workshops</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div><div class="cert-badge-name">Citizen science</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="cert-badge-name">Discussion panels</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="cert-badge-name">Art & science</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="cert-badge-name">Short talks</div></div>
-          </div>
-          <a class="learn-more-link" href="#lectures">See what I talk about</a>
-        </div>
-
-        <div class="cert-group">
-          <div class="lang-panel-title">Languages</div>
-          <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">Native · C2+</span></div>
-          <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Full professional · C2</span></div>
-          <div class="lang-row"><span class="lang-name">German</span><span class="lang-level">Conversational · B1–B2</span></div>
-        </div>
-      </div>
-
+      
+      
       <div class="cert-group-full">
         <div class="cert-group-title">Maritime & field</div>
         <div class="cert-badges">
@@ -1772,8 +1569,29 @@ img.lazy.loaded { opacity: 1; }
           <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="cert-badge-name">US Visa C1/D & B1/B2</div></div>
           <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div><div class="cert-badge-name">Engineering Degree, Geophysics</div></div>
         </div>
-      </div>
     </div>
+	
+	<div class="certs-outer">
+        <div class="cert-group">
+          <div class="cert-group-title">Science communication</div>
+          <div class="cert-badges">
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="cert-badge-name">Lectures & workshops</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div><div class="cert-badge-name">Citizen science</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="cert-badge-name">Discussion panels</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="cert-badge-name">Art & science</div></div>
+            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="cert-badge-name">Short talks</div></div>
+          </div>
+          <a class="learn-more-link" href="#lectures">See what I talk about</a>
+        </div>
+		<div class="cert-group">
+          <div class="lang-panel-title">Languages</div>
+          <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">Native · C2+</span></div>
+          <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Full professional · C2</span></div>
+          <div class="lang-row"><span class="lang-name">German</span><span class="lang-level">Conversational · B1–B2</span></div>
+        </div>
+		
+		</div>
+
   </section>
 
   <!-- LECTURES -->
@@ -1795,7 +1613,7 @@ img.lazy.loaded { opacity: 1; }
         <span class="topic-tag small">Flora</span>
       </div>
 
-      <p style="color:var(--ink-mid);font-size:0.92rem;margin-bottom:2.2rem;line-height:1.88;">Here is an example selection of ready-to-deliver content. Click any card for details. Lectures run 40–45 minutes including question time; workshops are hands-on; short talks slot in anywhere.</p>
+      <p style="color:var(--ink-mid);font-size:0.92rem;margin-bottom:2.2rem;line-height:1.88;">Here is an example selection of ready-to-deliver content. Click any card for details. Lectures run 40–45 minutes including question time; workshops are hands-on; short talks slot in anywhere. As of today, my content includes 18 lectures that I have already given, 25+ workshops and activities, and an ever-growing list of tiny talks/recaps/short lectures.</p>
 
       <div class="filter-row">
         <button class="filter-btn active" data-filter="Lecture">Lectures</button>
@@ -2081,22 +1899,24 @@ function switchTab(tab) {
   activeTab = tab;
   cur = 0;
   clearInterval(timer);
-allSlides.forEach(s => {
-  const show = s.dataset.tab === tab;
-  s.style.minWidth = show ? '100%' : '0';
-  s.style.overflow = show ? '' : 'hidden';
-  s.style.opacity  = show ? '' : '0';
-  s.style.pointerEvents = show ? '' : 'none';
-});
+
+  allSlides.forEach(s => {
+    const show = s.dataset.tab === tab;
+    s.style.minWidth     = show ? '100%' : '0';
+    s.style.overflow     = show ? '' : 'hidden';
+    s.style.opacity      = show ? '' : '0';
+    s.style.pointerEvents = show ? '' : 'none';
+  });
+
   visibleSlides = allSlides.filter(s => s.dataset.tab === tab);
   visibleSlides.forEach(s => {
     s.querySelectorAll('img.lazy').forEach(img => img.classList.add('loaded'));
   });
+
   track.style.transition = 'none';
-track.style.transform = `translateX(0%)`;
-  requestAnimationFrame(() => {
-    track.style.transition = '';
-  });
+  track.style.transform  = 'translateX(0%)';
+  requestAnimationFrame(() => { track.style.transition = ''; });
+
   buildDots();
   timer = setInterval(() => goTo(cur + 1), 5500);
 }
