@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jeanne de Lépinay</title>
 <meta name="description" content="Geophysicist, expedition guide and lecturer. Science communication in the polar regions and beyond.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -988,6 +993,44 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 .mini-bar-track { height: 2px; background: rgba(90,170,136,0.1); border-radius: 2px; }
 .mini-bar-fill { height: 100%; border-radius: 2px; background: var(--teal-light); }
 
+
+/* ── LINKS ── */
+/* ── LINKS ── */
+.links-panel { display: none; }
+.links-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+
+.link-card {
+  border: 1px solid rgba(45,79,60,0.1);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  transition: filter 0.2s, border-color 0.2s;
+}
+
+.link-card:hover { border-color: rgba(45,79,60,0.22); filter: brightness(0.97); }
+
+.link-card-top { display: flex; align-items: center; gap: 9px; }
+
+.link-card-favicon {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--snow);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.link-card-favicon img { width: 32px; height: 32px; display: block; }
+
+.link-card-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.3; }
+.link-card-desc { font-size: 0.75rem; color: var(--ink-mid); line-height: 1.55; flex: 1; }
+.link-card-arrow { font-size: 0.68rem; color: var(--teal); align-self: flex-end; letter-spacing: 0.06em; }
+
+@media (max-width: 960px) { .links-panel.active { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .links-panel.active { grid-template-columns: 1fr; } }
+
 /* ── CONTACT ── */
 .contact-links { display: flex; flex-direction: column; }
 
@@ -1233,6 +1276,7 @@ img.lazy.loaded { opacity: 1; }
     <li><a href="#myjob">My job</a></li>
     <li><a href="#lectures">My Content</a></li>
     <li><a href="#climate">Climate Change</a></li>
+	<li><a href="#links">Links</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#" class="nav-atelier" id="artTab" role="button">Atelier</a></li>
   </ul>
@@ -1701,6 +1745,66 @@ img.lazy.loaded { opacity: 1; }
     </div>
   </section>
 
+<!-- LINKS -->
+  <section class="card-section" id="links">
+    <div class="inner">
+      <span class="label">Resources</span>
+      <h2>Useful links<br><em>and references</em></h2>
+      <div class="rule"></div>
+
+      <div class="tab-row">
+        <button class="tab-btn active" data-links="climate">Climate science</button>
+        <button class="tab-btn" data-links="polar">Polar &amp; expedition</button>
+        <button class="tab-btn" data-links="citsci">Citizen science</button>
+        <button class="tab-btn" data-links="fr">French only</button>
+        <button class="tab-btn" data-links="mine">My work</button>
+      </div>
+
+      <div class="links-panel active" id="links-climate">
+        <a class="link-card" href="https://www.ipcc.ch" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=ipcc.ch&sz=64" alt=""></div><div class="link-card-title">IPCC</div></div><div class="link-card-desc">United Nation body producing the definitive scientific reference on climate change from thousands of peer-reviewed articles.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://www.ipcc.ch/report/ar6/wg1/resources/frequently-asked-questions/" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=ipcc.ch&sz=64" alt=""></div><div class="link-card-title">IPCC FAQ</div></div><div class="link-card-desc">Frequently asked questions from the assessment reports.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://www.ipcc.ch/report/ar6/syr/resources/spm-headline-statements/" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=ipcc.ch&sz=64" alt=""></div><div class="link-card-title">IPCC Summary for Policymakers</div></div><div class="link-card-desc">Key findings in accessible, decision-relevant language.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://keelingcurve.ucsd.edu" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=keelingcurve.ucsd.edu&sz=64" alt=""></div><div class="link-card-title">The Keeling Curve</div></div><div class="link-card-desc">Daily CO₂ measurements from Mauna Loa since 1958, and from glacial records in the last 800 000 years.</div><div class="link-card-arrow">→</div></a>
+        <!-- <a class="link-card" href="https://www.globalcarbonproject.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=globalcarbonproject.org&sz=64" alt=""></div><div class="link-card-title">Global Carbon Project</div></div><div class="link-card-desc">Annual carbon budget figures and emissions tracking.</div><div class="link-card-arrow">→</div></a> -->
+        <!-- <a class="link-card" href="https://climatereanalyzer.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=climatereanalyzer.org&sz=64" alt=""></div><div class="link-card-title">Climate Reanalyzer</div></div><div class="link-card-desc">Real-time global temperature anomalies — very visual.</div><div class="link-card-arrow">→</div></a> -->
+		<a class="link-card" href="https://en-roads.climateinteractive.org/scenario.html" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=climateinteractive.org&sz=64" alt=""></div><div class="link-card-title">En-ROADS</div></div><div class="link-card-desc">Test policy scenarios and see their impact on global temperature in real time with an interactive simulator from the MIT. All computation and hypothesis are sourced.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://ourworldindata.org/climate-change" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=ourworldindata.org&sz=64" alt=""></div><div class="link-card-title">Our World in Data</div></div><div class="link-card-desc">Excellent charts and context on climate and emissions.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://www.carbonbrief.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=carbonbrief.org&sz=64" alt=""></div><div class="link-card-title">Carbon Brief</div></div><div class="link-card-desc">Rigorous climate journalism and data explainers.</div><div class="link-card-arrow">→</div></a>
+        <!-- <a class="link-card" href="https://www.climate.gov" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=climate.gov&sz=64" alt=""></div><div class="link-card-title">NOAA Climate.gov</div></div><div class="link-card-desc">Accessible climate data and explainers from NOAA.</div><div class="link-card-arrow">→</div></a> -->
+		<!-- <a class="link-card" href="https://climate.copernicus.eu" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=climate.copernicus.eu&sz=64" alt=""></div><div class="link-card-title">Copernicus C3S</div></div><div class="link-card-desc">EU satellite-based climate monitoring service.</div><div class="link-card-arrow">→</div></a> -->
+		<a class="link-card" href="https://www.forkranger.com" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=forkranger.com&sz=64" alt=""></div><div class="link-card-title">ForkRanger</div></div><div class="link-card-desc">ForkRanger is a free app giving you every day new diagrams displaying the impacts of your food from all perspectives.</div><div class="link-card-arrow">→</div></a>
+      </div>
+
+      <div class="links-panel" id="links-polar">
+        <a class="link-card" href="https://nsidc.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=nsidc.org&sz=64" alt=""></div><div class="link-card-title">NSIDC</div></div><div class="link-card-desc">National Snow and Ice Data Center — sea ice extent data.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://www.polarpod.fr/en/" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=polarpod.fr&sz=64" alt=""></div><div class="link-card-title">Polar Pod</div></div><div class="link-card-desc">Jean-Louis Étienne's circumpolar expedition project.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://iaato.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=iaato.org&sz=64" alt=""></div><div class="link-card-title">IAATO</div></div><div class="link-card-desc">International Association of Antarctica Tour Operators.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://www.aeco.no" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=aeco.no&sz=64" alt=""></div><div class="link-card-title">AECO</div></div><div class="link-card-desc">Association of Arctic Expedition Cruise Operators.</div><div class="link-card-arrow">→</div></a>
+      </div>
+
+      <div class="links-panel" id="links-citsci">
+        <a class="link-card" href="https://www.inaturalist.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=inaturalist.org&sz=64" alt=""></div><div class="link-card-title">iNaturalist</div></div><div class="link-card-desc">Identify and record species observations worldwide.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://observer.globe.gov/do-globe-observer/clouds/" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=observer.globe.gov&sz=64" alt=""></div><div class="link-card-title">NASA Globe Observer — Clouds</div></div><div class="link-card-desc">Observe and record clouds from anywhere on Earth.</div><div class="link-card-arrow">→</div></a>
+        <a class="link-card" href="https://www.fjordphyto.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=fjordphyto.org&sz=64" alt=""></div><div class="link-card-title">Fjordphyto</div></div><div class="link-card-desc">Phytoplankton sampling project in polar waters.</div><div class="link-card-arrow">→</div></a>
+      </div>
+
+      <div class="links-panel" id="links-fr">
+	  <a class="link-card" href="https://www.ipcc.ch/languages-2/francais/" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=ipcc.ch&sz=64" alt=""></div><div class="link-card-title">IPCC / GIEC</div></div><div class="link-card-desc">Corps officiel de l'ONU résumant des centaines de publications scientifiques sur le climat revues par les pairs et produisant les rapports de référence concernant l'environnement, le climat et l'énergie.</div><div class="link-card-arrow">→</div></a>
+	  <a class="link-card" href="https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WG1_SPM_French.pdf" target="_blank" data-color="rgba(244,241,234,0.97)">  <div class="link-card-top">    <div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=ipcc.ch&sz=64" alt=""></div>    <div class="link-card-title">IPCC / GIEC AR6 — Résumé pour les décideurs</div></div>  <div class="link-card-desc">Bases scientifiques physiques du changement climatique — version officielle en français (PDF).</div>  <div class="link-card-arrow">→</div></a>
+	  <a class="link-card" href="https://theshiftproject.org" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=theshiftproject.org&sz=64" alt=""></div><div class="link-card-title">The Shift Project</div></div><div class="link-card-desc">Think tank pour la décarbonation de l'économie.</div><div class="link-card-arrow">→</div></a>
+	  <a class="link-card" href="https://www.polarpod.fr" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=polarpod.fr&sz=64" alt=""></div><div class="link-card-title">Polar Pod</div></div><div class="link-card-desc">L'expédition circumpolaire de Jean-Louis Étienne.</div><div class="link-card-arrow">→</div></a>
+
+	  <a class="link-card" href="https://www.youtube.com/@LeReveilleur" target="_blank" data-color="rgba(244,241,234,0.97)">  <div class="link-card-top">    <div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" alt=""></div>    <div class="link-card-title">Le Réveilleur</div>  </div>  <div class="link-card-desc">Chaîne YouTube "Le Réveilleur" de Rodolphe Meyer — vulgarisation rigoureuse sur l'énergie et le climat. Des réponses très détiallées à toutes les questions sur le sujet.</div>  <div class="link-card-arrow">→</div></a>
+	  <a class="link-card" href="https://theconversation.com/fr/environnement" target="_blank" data-color="rgba(244,241,234,0.97)">  <div class="link-card-top">    <div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=theconversation.com&sz=64" alt=""></div>    <div class="link-card-title">The Conversation France</div>  </div>  <div class="link-card-desc">Articles académiques vulgarisés pour le grand public, en français.</div>  <div class="link-card-arrow">→</div></a>
+      </div>
+
+      <div class="links-panel" id="links-mine">
+        <a class="link-card" href="https://jeanne-de-lepinay.github.io/climate-change-survey/" target="_blank" data-color="rgba(244,241,234,0.97)"><div class="link-card-top"><div class="link-card-favicon"><img src="https://www.google.com/s2/favicons?domain=github.io&sz=64" alt=""></div><div class="link-card-title">Climate change survey — Travel HX</div></div><div class="link-card-desc">My ongoing passenger survey on climate attitudes. Results openly published.</div><div class="link-card-arrow">→</div></a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="card-section contact" id="contact">
     <div class="inner">
@@ -1947,6 +2051,19 @@ document.querySelectorAll('img.lazy').forEach(img => {
   } else {
     img.addEventListener('load', () => img.classList.add('loaded'));
   }
+});
+// ── Links tabs ───────────────────────────────────────────────────────
+document.querySelectorAll('[data-links]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.inner').querySelectorAll('[data-links]').forEach(b => b.classList.remove('active'));
+    btn.closest('.inner').querySelectorAll('.links-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('links-' + btn.dataset.links).classList.add('active');
+  });
+});
+
+document.querySelectorAll('.link-card[data-color]').forEach(card => {
+  card.style.background = card.dataset.color;
 });
 </script>
 </body>
