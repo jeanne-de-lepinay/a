@@ -133,7 +133,7 @@ nav {
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ── HERO ── */
-.hero { min-height: 100vh; display: grid; grid-template-columns: 50% 50%; }
+.hero { min-height: 100vh; display: grid; grid-template-columns: 50% 50%; border-bottom: 3px solid var(--fjord) !important; }
 
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
@@ -215,7 +215,7 @@ h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 37%;
   display: block;
 }
 
@@ -267,7 +267,7 @@ h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
 }
 
 .card-section.certs {
-  background: var(--fjord-green);
+  background: rgba(68, 112, 112, 0.2);;
   border-color: rgba(143,181,197,0.15);
 }
 
@@ -370,13 +370,49 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   text-transform: uppercase;
 }
 
+.link-slot-overlay {
+  position: absolute; inset: 0;
+  background: rgba(40,50,50,0.6);
+  transition: background 0.2s;
+}
+.photo-slot.link-slot:hover .link-slot-overlay { background: rgba(40,50,50,0.4); }
+.link-slot-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.4rem;
+  z-index: 1;
+}
+.link-slot-arrow { font-size: 1.1rem; color: #fff; }
+.link-slot-text {
+  font-size: 0.7rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(255,255,255,0.85);
+  text-align: center; line-height: 1.5;
+}
+.link-slot .link-slot-text,
+.link-slot .link-slot-arrow {
+  color: rgba(242,239,232,0.85); font-size: 0.8rem; 
+}
+.link-slot:hover .link-slot-text,
+.link-slot:hover .link-slot-arrow {
+  color: #fff;
+}
+
+.gbit-sub-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 1.2rem 0 0.6rem;
+}
+
 /* ── QUALIFICATIONS ── */
 .certs-outer { display: grid; grid-template-columns: 1fr 250px; gap: 3rem; }
 
 .cert-group,
 .cert-group-full {
-  background: var(--mist);
-  border: 1px solid rgba(74,117,133,0.25);
+  background: rgba(244,241,234,0.96);
+  border: 1px solid rgba(45,79,60,0.1);
   padding: 1.5rem;
 }
 
@@ -387,13 +423,11 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   font-size: 0.62rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--ink-light);
   margin-bottom: 1.5rem;
   padding-bottom: 0.6rem;
-  border-bottom: 1px solid rgba(25,32,25,0.15);
+  border-bottom: 1px solid rgba(45,79,60,0.1);
 }
-
-.lang-panel-title { border-color: rgba(45,79,60,0.1); }
 
 .cert-badges {
   display: flex;
@@ -414,20 +448,20 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   flex-shrink: 0;
 }
 
-.cert-badge-name { font-size: 0.68rem; color: #2a3d4a; line-height: 1.35; }
+.cert-badge-name { font-size: 0.68rem; color: var(--ink-light); line-height: 1.35; }
 
 .cert-icon-wrap {
   width: 58px; height: 58px;
   border-radius: 50%;
-  border: 1px solid rgba(74,117,133,0.3);
-  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(47,114,96,0.15);
+  background: rgba(47,114,96,0.05);
   display: flex; align-items: center; justify-content: center;
   transition: border-color 0.25s, background 0.25s;
 }
 
 .cert-icon-wrap svg {
   width: 27px; height: 27px;
-  stroke: var(--fjord);
+  stroke: var(--teal);
   fill: none;
   stroke-width: 1.5;
   stroke-linecap: round;
@@ -435,8 +469,8 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   transition: stroke 0.25s;
 }
 
-.cert-badge:hover .cert-icon-wrap { border-color: rgba(74,117,133,0.5); background: rgba(255,255,255,0.25); }
-.cert-badge:hover svg { stroke: var(--fjord-deep); }
+.cert-badge:hover .cert-icon-wrap { border-color: rgba(47,114,96,0.4); background: rgba(47,114,96,0.09); }
+.cert-badge:hover svg { stroke: var(--teal); }
 
 .learn-more-link {
   display: flex;
@@ -446,30 +480,32 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   font-size: 0.64rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--teal);
   text-decoration: none;
   margin-top: 2rem;
   padding-bottom: 0.12rem;
-  border-bottom: 1px solid rgba(25,32,25,0.25);
+  border-bottom: 1px solid rgba(47,114,96,0.25);
   transition: all 0.2s;
 }
 
 .learn-more-link:hover { opacity: 0.7; }
 .learn-more-link::after { content: '↓'; font-size: 0.72rem; }
 
+.lang-panel-title { border-color: rgba(45,79,60,0.1); }
+
 .lang-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(25,32,25,0.12);
+  border-bottom: 1px solid rgba(45,79,60,0.08);
 }
 
 .lang-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--ink); }
-.lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); }
+.lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
 
-/* ── EXPERIENCE ── */
-.exp-note {
+/* ── AT SEA — tabbed carousel ── */
+.atsea-intro {
   font-family: var(--serif);
   font-size: 1rem;
   font-weight: 300;
@@ -477,7 +513,47 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   line-height: 1.9;
   color: var(--stone);
   max-width: 480px;
-  margin-bottom: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.atsea-meta {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 2.2rem;
+}
+
+.tab-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(45,79,60,0.12);
+}
+
+.tab-btn {
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid rgba(45,79,60,0.12);
+  border-bottom: none;
+  background: rgba(45,79,60,0.03);
+  color: var(--ink-light);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-weight: 400;
+  transition: all 0.22s;
+  margin-bottom: -1px;
+}
+
+.tab-btn:not(:first-child) { border-left: none; }
+
+.tab-btn.active {
+  background: var(--snow);
+  color: var(--teal);
+  border-color: rgba(45,79,60,0.12);
+  border-bottom-color: var(--snow);
 }
 
 .carousel {
@@ -485,6 +561,7 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
   overflow: hidden;
   isolation: isolate;
   border: 1px solid rgba(45,79,60,0.12);
+  border-top: none;
   background: var(--ice);
   max-width: 900px;
   margin: 0 auto;
@@ -569,6 +646,365 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 }
 
 .carousel-dot.active { background: var(--pine-mid); }
+/* ── TIMELINE ── */
+.timeline-intro {
+  font-size: 0.92rem;
+  line-height: 1.88;
+  color: var(--ink-mid);
+  margin-bottom: 3rem;
+}
+
+.timeline { display: flex; flex-direction: column; }
+
+.tl-chapter {
+  display: grid;
+  grid-template-columns: 100px 1px 1fr;
+  gap: 0 2rem;
+  padding-bottom: 2.8rem;
+}
+
+.tl-chapter:last-child { padding-bottom: 0; }
+
+.tl-date {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-align: right;
+  padding-top: 0.15rem;
+  line-height: 1.5;
+}
+
+.tl-spine { display: flex; flex-direction: column; align-items: center; }
+
+.tl-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--teal);
+  background: var(--snow);
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.tl-dot.dim { border-color: var(--ink-light); }
+
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: rgba(45,79,60,0.15);
+  margin-top: 6px;
+}
+
+.tl-body { padding-bottom: 0.2rem; }
+
+.tl-role {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+  line-height: 1.25;
+}
+
+.tl-employer {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.7rem;
+}
+
+.tl-desc {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.82;
+  margin-bottom: 1rem;
+}
+
+.tl-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.tl-photo {
+  aspect-ratio: 4/3;
+  background: var(--snow-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.tl-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s;
+  filter: saturate(0.85);
+}
+
+.tl-photo:hover img { transform: scale(1.04); filter: saturate(1); }
+
+.tl-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,114,96,0.25);
+  padding-bottom: 0.1rem;
+  transition: all 0.2s;
+}
+
+.tl-link:hover { border-color: var(--teal); }
+.tl-link::after { content: '↑'; font-size: 0.7rem; }
+/* ── GOING BACK IN TIME — horizontal gallery timeline ── */
+.gbit-divider {
+  height: 1px;
+  background: rgba(45,79,60,0.1);
+  margin: 3rem 0 2rem;
+}
+
+.gbit-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.gbit-bar {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.gbit-bar::before {
+  content: '';
+  position: absolute;
+  top: 7px; left: 0; right: 0;
+  height: 1px;
+  background: rgba(45,79,60,0.15);
+  z-index: 0;
+}
+
+.gbit-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.gbit-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--teal);
+  background: var(--snow);
+  margin-bottom: 7px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.gbit-dot.dim { border-color: var(--ink-light); }
+.gbit-node.active .gbit-dot { background: var(--teal); }
+
+.gbit-node-label {
+  font-size: 0.58rem;
+  text-align: center;
+  color: var(--ink-light);
+  line-height: 1.35;
+  max-width: 64px;
+  letter-spacing: 0.04em;
+}
+
+.gbit-node-label strong {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--ink-mid);
+  margin-bottom: 1px;
+}
+
+.gbit-panel {
+  margin-top: 1.2rem;
+  border: 1px solid rgba(45,79,60,0.1);
+  background: rgba(45,79,60,0.02);
+  padding: 1.4rem 1.6rem;
+}
+
+.gbit-panel-role {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+.gbit-panel-emp {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.7rem;
+}
+
+.gbit-panel-desc {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.82;
+}
+
+.gbit-gallery-wrap {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.gbit-gallery-scroll {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gbit-gallery-scroll::-webkit-scrollbar { display: none; }
+
+.gbit-gallery-photo {
+  flex-shrink: 0;
+  aspect-ratio: 4/3;
+  height: 130px;
+  background: var(--snow-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.gbit-gallery-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.85);
+  transition: transform 0.5s ease, filter 0.4s;
+}
+
+.gbit-gallery-photo:hover img { transform: scale(1.04); filter: saturate(1); }
+
+.gbit-gallery-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.2rem 0.5rem 0.35rem;
+  background: linear-gradient(0deg, rgba(10,18,14,0.75), transparent);
+  font-size: 0.55rem;
+  color: rgba(235,245,240,0.9);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.gbit-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 24px; height: 24px;
+  background: var(--snow);
+  border: 1px solid rgba(45,79,60,0.18);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  z-index: 2;
+  transition: border-color 0.2s;
+  user-select: none;
+}
+
+.gbit-arrow:hover { border-color: var(--ink-mid); }
+.gbit-arrow.left { left: -12px; }
+.gbit-arrow.right { right: -12px; }
+
+.gbit-sub-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.gbit-sub-block {
+  border-left: 2px solid rgba(47,114,96,0.2);
+  padding-left: 0.8rem;
+}
+
+.gbit-sub-title {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.gbit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,114,96,0.25);
+  padding-bottom: 0.1rem;
+  transition: all 0.2s;
+  margin-top: 0.8rem;
+  display: inline-flex;
+}
+
+.gbit-link:hover { border-color: var(--teal); }
+.gbit-link::after { content: '↑'; font-size: 0.7rem; }
+
+/* link slot in photo strip */
+.photo-slot.link-slot {
+  background: rgba(47,114,96,0.05);
+  border: 1px solid rgba(47,114,96,0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.photo-slot.link-slot:hover { background: rgba(47,114,96,0.1); }
+
+.link-slot-arrow {
+  font-size: 1.1rem;
+  color: var(--teal);
+}
+
+.link-slot-text {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.gbit-hidden { display: none; }
+
+@media (max-width: 960px) {
+  .gbit-sub-row { grid-template-columns: 1fr; }
+  .gbit-node-label { max-width: 48px; font-size: 0.52rem; }
+}
 
 /* ── LECTURES ── */
 .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
@@ -664,7 +1100,7 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 }
 
 .lectures-note {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--ink-mid);
   line-height: 1.88;
   margin-top: 2.2rem;
@@ -899,10 +1335,10 @@ img.lazy.loaded { opacity: 1; }
   .nav-atelier { display: inline-block; }
 
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 9rem 1.5rem 3.5rem; }
-  .hero-right { height: 90vw; max-height: 480px; }
+  .hero-left { padding: 9rem 2.5rem 3.5rem; }
+  .hero-right { height: 90vw; max-height: 680px; font-size: 0;  }
 
-  .cards-wrap { padding: 1.5rem 1rem 0; gap: 1rem; }
+  .cards-wrap { padding: 2.5rem 2.5rem 0; gap: 2.5rem; margin-top: 2.5rem }
   .card-section { padding: 3.5rem 1.8rem; }
   .footer-card { padding: 1.2rem 1.8rem; }
 
@@ -912,6 +1348,10 @@ img.lazy.loaded { opacity: 1; }
 
   .content-grid { grid-template-columns: 1fr; }
   .photo-strip { grid-template-columns: 1fr 1fr; }
+
+  .tl-chapter { grid-template-columns: 72px 1px 1fr; gap: 0 1.2rem; }
+  .tl-photos { grid-template-columns: 1fr 1fr; }
+  .tl-photos .tl-photo:last-child { display: none; }
 
   footer { flex-direction: column; gap: 0.5rem; text-align: center; }
 
@@ -923,7 +1363,7 @@ img.lazy.loaded { opacity: 1; }
 @media (max-width: 600px) {
   nav { padding: 0.9rem 1rem; }
   .nav-name { font-size: 0.9rem; }
-  .cards-wrap { padding: 1rem 0 0; gap: 0.7rem; }
+  .cards-wrap { padding: 2.5rem 0 0; gap: 3rem; }
   .card-section { padding: 2rem 1rem; width: 100%; }
   .certs-outer { grid-template-columns: 1fr; gap: 1.5rem; }
   .cert-badges { max-width: 100%; }
@@ -967,8 +1407,8 @@ img.lazy.loaded { opacity: 1; }
   </button>
   <ul class="nav-links">
     <li><a href="#about">Background</a></li>
-    <li><a href="#certs">Qualifications</a></li>
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="#atsea">At sea</a></li>
+	<li><a href="#certs">Qualifications</a></li>
     <li><a href="#lectures">My Content</a></li>
     <li><a href="#climate">Climate Change</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1028,7 +1468,7 @@ img.lazy.loaded { opacity: 1; }
 
       <div class="photo-strip">
         <div class="photo-slot">
-          <img src="lecture.jpg" alt="Onboard lecture" class="lazy" loading="lazy" width="800" height="600">
+          <img src="lecture.jpg" alt="Onboard lecture" class="lazy" width="800" height="600">
           <div class="photo-slot-label">Onboard lecture</div>
         </div>
         <div class="photo-slot">
@@ -1047,15 +1487,251 @@ img.lazy.loaded { opacity: 1; }
           <img src="zodiacdriver.jpeg" alt="Zodiac operations" class="lazy" loading="lazy" width="800" height="600">
           <div class="photo-slot-label">Zodiac driving</div>
         </div>
-        <div class="photo-slot">
+		<a class="photo-slot link-slot" href="#atsea">
           <img src="guide.jpg" alt="Expedition guiding — Travel HX" class="lazy" loading="lazy" width="800" height="600">
-          <div class="photo-slot-label">Travel HX · 2023–present</div>
+          <div class="link-slot-overlay"></div>
+          <div class="link-slot-content">
+            <div class="link-slot-arrow">&#8594;</div>
+            <div class="link-slot-text">Find out more</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- GOING BACK IN TIME -->
+      <div class="gbit-divider"></div>
+      <span class="gbit-label">Going back in time</span>
+
+      <div class="gbit-bar">
+        <div class="gbit-node active" data-panel="hx">
+          <div class="gbit-dot"></div>
+          <div class="gbit-node-label"><strong>Since 2023</strong>Travel HX</div>
+        </div>
+        <div class="gbit-node" data-panel="ter">
+          <div class="gbit-dot"></div>
+          <div class="gbit-node-label"><strong>2020&#8211;2022</strong>Terremys</div>
+        </div>
+        <div class="gbit-node" data-panel="post">
+          <div class="gbit-dot"></div>
+          <div class="gbit-node-label"><strong>2019&#8211;2020</strong>Postdoc</div>
+        </div>
+        <div class="gbit-node" data-panel="phd">
+          <div class="gbit-dot"></div>
+          <div class="gbit-node-label"><strong>2015&#8211;2019</strong>PhD</div>
+        </div>
+        <div class="gbit-node" data-panel="deg">
+          <div class="gbit-dot dim"></div>
+          <div class="gbit-node-label"><strong>2010&#8211;2015</strong>Master's &amp; Eng.</div>
+        </div>
+      </div>
+
+      <div class="gbit-panel" id="gbitPanel">
+
+        <!-- HX -->
+        <div id="gbit-hx">
+          <div class="gbit-panel-role">Expedition Guide &amp; Lecturer</div>
+          <div class="gbit-panel-emp">Hurtigruten / Travel HX &middot; 2023&#8211;present</div>
+          <div class="gbit-panel-desc">Science communication and expedition guiding aboard HX vessels across the Arctic and Antarctic. See the At sea card for the full picture.</div>
+        </div>
+
+        <!-- TERREMYS -->
+        <div id="gbit-ter" class="gbit-hidden">
+          <div class="gbit-panel-role">Geophysicist</div>
+          <div class="gbit-panel-emp">Terremys &middot; 2020&#8211;2022</div>
+          <div class="gbit-panel-desc">Sole geophysicist at a drone magnetic mapping start-up. Survey planning, field data acquisition and processing of airborne magnetic datasets. Science communication at conferences and in schools.</div>
+          <div class="gbit-gallery-wrap">
+            <button class="gbit-arrow left" onclick="gbitScroll('ter-gallery',-1)" aria-label="Previous">&#8249;</button>
+            <div class="gbit-gallery-scroll" id="ter-gallery">
+              <div class="gbit-gallery-photo">
+                <img src="terremys.jpeg" alt="Terremys drone surveys" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Drone magnetic surveys</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="terremys-pres.jpeg" alt="AGAP Qualite congress" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">AGAP Qualite congress</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="terremys-pres2.jpeg" alt="High school outreach" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">High school science outreach</div>
+              </div>
+            </div>
+            <button class="gbit-arrow right" onclick="gbitScroll('ter-gallery',1)" aria-label="Next">&#8250;</button>
+          </div>
+        </div>
+
+        <!-- POSTDOC -->
+        <div id="gbit-post" class="gbit-hidden">
+          <div class="gbit-panel-role">Postdoctoral research</div>
+          <div class="gbit-panel-emp">Academia &middot; 2019&#8211;2020</div>
+          <div class="gbit-panel-desc">Collaborative applied geophysics research following the PhD, continuing work on field data processing and magnetic survey methods.</div>
+        </div>
+
+        <!-- PHD -->
+        <div id="gbit-phd" class="gbit-hidden">
+          <div class="gbit-panel-role">PhD &#8212; Geophysics</div>
+          <div class="gbit-panel-emp">Universit&eacute; de Strasbourg &middot; Guadeloupe fieldwork &middot; 2015&#8211;2019</div>
+          <div class="gbit-panel-desc">Doctoral research developing magnetic survey techniques by motorboat and drone to map the geothermal potential of Basse-Terre, Guadeloupe. Defended April 29th, 2019.</div>
+          <div class="gbit-gallery-wrap">
+            <button class="gbit-arrow left" onclick="gbitScroll('phd-gallery',-1)" aria-label="Previous">&#8249;</button>
+            <div class="gbit-gallery-scroll" id="phd-gallery">
+              <div class="gbit-gallery-photo">
+                <img src="these.jpg" alt="PhD defense" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">PhD defense &middot; April 2019</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="slide.png" alt="PhD defense slide" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Defense presentation slide</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="guadeloupe-drone.jpg" alt="Drone survey Guadeloupe" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Drone survey &middot; Basse-Terre &middot; 2017&#8211;18</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="rocks-guad.jpg" alt="Fieldwork Guadeloupe" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Small-scale data acquisition &middot; 2016</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="geophy-guad2.jpg" alt="Fieldwork Guadeloupe" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Outcrop physical characteristics &middot; 2015</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="geophy-guad.JPG" alt="First fieldwork Guadeloupe" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">First fieldwork &middot; Basse-Terre &middot; 2015</div>
+              </div>
+            </div>
+            <button class="gbit-arrow right" onclick="gbitScroll('phd-gallery',1)" aria-label="Next">&#8250;</button>
+          </div>
+
+		<div class="gbit-sub-label">Side quests</div>
+          <div class="gbit-gallery-wrap">
+            <button class="gbit-arrow left" onclick="gbitScroll('side-gallery',-1)" aria-label="Previous">&#8249;</button>
+            <div class="gbit-gallery-scroll" id="side-gallery">
+              <div class="gbit-gallery-photo">
+                <img src="archaeo.jpg" alt="Archaeological survey Palestine" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Archaeological survey &middot; Tell Qilah, Palestine &middot; 2017</div>
+              </div>
+              <div class="gbit-gallery-photo">
+                <img src="gepeto.jpeg" alt="Ge-Pe-To science communication" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Science communication &middot; G&eacute;-P&eacute;-To &middot; Mineral &amp; Gem Fair &middot; 2015&#8211;2018</div>
+              </div>
+			  <div class="gbit-gallery-photo">
+                <img src="gepeto2.jpeg" alt="Ge-Pe-To science communication" class="lazy" loading="lazy">
+                <div class="gbit-gallery-cap">Science communication &middot; G&eacute;-P&eacute;-To &middot; Mineral &amp; Gem Fair &middot; 2015&#8211;2018</div>
+              </div>
+            </div>
+            <button class="gbit-arrow right" onclick="gbitScroll('side-gallery',1)" aria-label="Next">&#8250;</button>
+          </div>
+        </div>
+
+        <!-- DEGREE -->
+        <div id="gbit-deg" class="gbit-hidden">
+          <div class="gbit-panel-role">Master's &amp; Engineering degree &#8212; Geophysics</div>
+          <div class="gbit-panel-emp">&#201;cole et Observatoire des Sciences de la Terre &middot; Strasbourg &middot; 2010&#8211;2015</div>
+          <div class="gbit-panel-desc">Dual degree combining a Master of Science and an Engineering diploma in geophysics. Foundations in applied physics, field methods, and signal processing.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AT SEA -->
+  <section class="card-section atsea" id="atsea">
+    <div class="inner">
+      <span class="label">At sea</span>
+      <h2>Life on board<br><em>A variety of roles</em></h2>
+      <div class="rule"></div>
+      <!-- <p class="atsea-intro">Here are some roles I cover on ships - or things I do onboard...</p> -->
+
+      <div class="tab-row">
+	    <button class="tab-btn active" data-tab="ops">Operational</button>
+        <button class="tab-btn" data-tab="sci">Science communication</button>
+      </div>
+
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="carousel-slide" data-tab="ops">
+            <img src="landscape.jpeg" alt="Expedition landscape" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Expedition Guide</div><div class="carousel-slide-cap-sub">Travel HX · Arctic and Antarctica · 2023–present</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="ops">
+            <img src="zodiac2.jpeg" alt="Zodiac driving in polar conditions" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac driving in polar regions</div><div class="carousel-slide-cap-sub">Snow, sea ice, icebergs, calving — sometimes all at once</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="ops">
+            <img src="landing2.jpeg" alt="Polar landing" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar landing</div><div class="carousel-slide-cap-sub">Expedition guiding · Arctic and Antarctic Peninsula</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="ops">
+            <img src="icelanding.jpeg" alt="Ice landing" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar ice landing</div><div class="carousel-slide-cap-sub">Antarctica and North Greenland</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="ops">
+            <img src="rifle.jpeg" alt="Polar bear training in Norway" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">HX polar bear training</div><div class="carousel-slide-cap-sub">Award-winning Arctic safety training: spotting, reacting, handling firearms</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="ops">
+            <img src="camping.jpeg" alt="Setting camp in Antarctica" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Camping on Antarctic snow</div><div class="carousel-slide-cap-sub">No camping in the Arctic — that's where the polar bear roams</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="ops">
+            <img src="hike.jpeg" alt="Hike in Uummannaq" class="lazy" loading="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Hikes and nature walks</div><div class="carousel-slide-cap-sub">Uummannaq, West Greenland</div></div>
+          </div>
+		  
+		  
+          <div class="carousel-slide" data-tab="sci">
+            <img src="lecture.jpg" alt="Onboard lecture" class="lazy">
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Onboard lecture</div><div class="carousel-slide-cap-sub">Varied formats — 30 to 45 min, with questions</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="deception.jpeg" alt="On-site interpretation" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">On-site interpretation</div><div class="carousel-slide-cap-sub">Deception Island, South Shetland Islands</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="fieldinterp.jpeg" alt="On-site interpretation" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">On-site interpretation</div><div class="carousel-slide-cap-sub">Red Rock Ridge, Antarctic Peninsula</div></div>
+          </div>
+		  <div class="carousel-slide" data-tab="sci">
+            <img src="zodiac.jpg" alt="Zodiac guiding in polar waters" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding — polar waters</div><div class="carousel-slide-cap-sub">On-site zodiac interpretation</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="zodiacguide.jpeg" alt="Zodiac guiding as a geologist" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding as a geologist</div><div class="carousel-slide-cap-sub">Always going the extra mile to get you close to the interesting rocks</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="clouds1.jpeg" alt="NASA Globe Observer workshop" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Workshops</div><div class="carousel-slide-cap-sub">NASA Globe Observer Clouds program, Antarctic deck</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="iceicebaby.jpeg" alt="Ice workshop" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop</div><div class="carousel-slide-cap-sub">Types of ice and the evolution of the global cryosphere</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="insideice.jpeg" alt="Ice workshop" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop</div><div class="carousel-slide-cap-sub">Types of ice and the evolution of the global cryosphere</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="ilulissat.jpeg" alt="Ice workshop outside" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop — outside</div><div class="carousel-slide-cap-sub">No better classroom than Ilulissat Icefjord</div></div>
+          </div>
+          <div class="carousel-slide" data-tab="sci">
+            <img src="postcards2.jpeg" alt="Watercolour workshop" class="lazy" >
+            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Artistic break</div><div class="carousel-slide-cap-sub">Your artistic self deserves as much attention as your nerdy self</div></div>
+          </div>
+
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Previous">‹</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="carouselNext" aria-label="Next">›</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- QUALIFICATIONS -->
+ <!-- QUALIFICATIONS -->
   <section class="card-section certs" id="certs">
     <div class="inner">
       <span class="label">Qualifications</span>
@@ -1100,139 +1776,6 @@ img.lazy.loaded { opacity: 1; }
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="card-section experience" id="experience">
-    <div class="inner">
-      <span class="label">Experience</span>
-      <h2>A short history<br><em>in places and projects</em></h2>
-      <div class="rule"></div>
-      <p class="exp-note">From volcanic islands to drone surveys to the polar ice — illustrated with images from the field and maps produced along the way. Here is a gallery of me doing things.</p>
-
-      <div class="carousel" id="carousel">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide">
-            <img src="landscape.jpeg" alt="Landscape picture" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Expedition Guide and Lecturer</div><div class="carousel-slide-cap-sub">Travel HX · Arctic / Antarctica · 2023 - present</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="zodiac.jpg" alt="Zodiac guiding in polar waters" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding — polar waters</div><div class="carousel-slide-cap-sub">On-site zodiac interpretation</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="lecture.jpg" alt="Onboard lecture" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Onboard lecture</div><div class="carousel-slide-cap-sub">Varied number of lectures and content format</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="deception.jpeg" alt="On-site interpretation" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">On-site interpretation</div><div class="carousel-slide-cap-sub">On-site discussion sharing my passion for geology to guests and colleagues (Deception Island, South Shetland Islands).</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="fieldinterp.jpeg" alt="On-site interpretation (to another guide)" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">On-site interpretation</div><div class="carousel-slide-cap-sub">On-site discussion sharing my passion for geology to guests and colleagues (Red Rock Ridge, Antarctic Peninsula).</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="clouds1.jpeg" alt="Workshop for NASA Globe Observer Clouds program" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Workshops</div><div class="carousel-slide-cap-sub">Workshop for NASA Globe Observer Clouds program, observing clouds outside on deck in sunny Antarctica.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="iceicebaby.jpeg" alt="Explaining Ice" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop</div><div class="carousel-slide-cap-sub">Explaining different types of ice and the evolution of the global cryosphere</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="insideice.jpeg" alt="Explaining Ice" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop</div><div class="carousel-slide-cap-sub">Explaining different types of ice and the evolution of the global cryosphere</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="ilulissat.jpeg" alt="Explaining Ice in Ilulissat" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Ice workshop Outside</div><div class="carousel-slide-cap-sub">No better way to understand the cryosphere than to see it for yourself...</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="postcards2.jpeg" alt="Artistic break - watercolor painting postcards" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Artistic break</div><div class="carousel-slide-cap-sub">I will always ensure that your artistic self is as well fed as your nerdy self</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="landing2.jpeg" alt="Polar landing" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar landing</div><div class="carousel-slide-cap-sub">Expedition guiding · Arctic and Antarctic Peninsula</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="rifle.jpeg" alt="Polar bear training in Norway" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">HX polar bear training</div><div class="carousel-slide-cap-sub">Travel HX provides award-winning training for Arctic Polar Bear protection: spotting, reacting and handling firearms.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="icelanding.jpeg" alt="Ice landing" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Polar ice landing</div><div class="carousel-slide-cap-sub">Ice landing in Antarctica and in the Arctic (North Greenland)</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="zodiacguide.jpeg" alt="On-site interpretation - getting close to the rocks" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac guiding as a geologist</div><div class="carousel-slide-cap-sub">The geologist driving your zodiac will always go the extra mile so you can take a look at the cool rocks - and tell you why it's cool.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="zodiac2.jpeg" alt="Zodiac driving in polar conditions" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Zodiac driving in polar regions</div><div class="carousel-slide-cap-sub">Polar regions imply snow, sea ice, icebergs, potential calving and sometimes rough or unpredictable conditions</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="camping.jpeg" alt="Setting camp in Antarctica" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Camping on Antarctic snow</div><div class="carousel-slide-cap-sub">Setting camp in Antarctica. No camping in the Arctic, where the polar bear roams.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="hike.jpeg" alt="Hike in Uummannaq" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Hikes and Nature Walks</div><div class="carousel-slide-cap-sub">Guiding can involve leading nature walks and hikes (here is Uummannaq, West Greenland)</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="terremys.jpeg" alt="Terremys geophysical drone surveys" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Terremys</div><div class="carousel-slide-cap-sub">I spent 2 years as Terremys' geophysicist, organising and processing magnetic drone surveys.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="terremys-pres.jpeg" alt="Terremys AGAP Qualité congress" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Presentations with Terremys</div><div class="carousel-slide-cap-sub">Scientific work comes with its load of science communication in different conferences and meetings.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="terremys-pres2.jpeg" alt="Terremys Presentation to High School students" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Presentations with Terremys - High School</div><div class="carousel-slide-cap-sub">All girls high school students discovering geophysics.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="gepeto.jpeg" alt="Geoscience communication" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Geoscience communication</div><div class="carousel-slide-cap-sub">Geoscience communication for adults and children, international Mineral and Gem fair, Sainte-Marie-aux-Mines, 2015-2018.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="these.jpg" alt="PhD Defense" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">PhD defense</div><div class="carousel-slide-cap-sub">April 29th, 2019.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="slide.png" alt="Slide from PhD presentation" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">PhD defense</div><div class="carousel-slide-cap-sub">Slide extracted from my PhD presentation.</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="archaeo.jpg" alt="Palestine archaeological field" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Archaeology</div><div class="carousel-slide-cap-sub">Archaeological survey in Hebron region, Palestine (Tell Qilah), 2017. Find me!</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="guadeloupe-drone.jpg" alt="Drone survey in Guadeloupe" class="lazy" loading="lazy">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Drone Survey in Guadeloupe, 2017 & 2018</div><div class="carousel-slide-cap-sub">Basse-Terre magnetic cartography by drone</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="rocks-guad.jpg" alt="Guadeloupe PhD fieldwork" class="lazy" loading="eager">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork (small-scale data acquisition) · Basse-Terre · 2016</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="geophy-guad2.jpg" alt="Guadeloupe PhD fieldwork" class="lazy" loading="eager">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD fieldwork (study of outcrop's physical characteristics) · Basse-Terre · 2015</div></div>
-          </div>
-          <div class="carousel-slide">
-            <img src="geophy-guad.JPG" alt="Guadeloupe PhD first fieldwork" class="lazy" loading="eager">
-            <div class="carousel-slide-cap"><div class="carousel-slide-cap-title">Guadeloupe</div><div class="carousel-slide-cap-sub">PhD first fieldwork (data acquisition) · Basse-Terre · 2015</div></div>
-          </div>
-        </div>
-
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="carouselPrev" aria-label="Previous">‹</button>
-          <div class="carousel-dots" id="carouselDots"></div>
-          <button class="carousel-btn" id="carouselNext" aria-label="Next">›</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- LECTURES -->
   <section class="card-section lectures" id="lectures">
     <div class="inner">
@@ -1262,30 +1805,49 @@ img.lazy.loaded { opacity: 1; }
       </div>
 
       <div class="content-grid" id="contentGrid">
-        <div class="content-card" data-type="Lecture" data-title="The Very Cool Life of Glaciers" data-place="Poles" data-badge="30 min · Lecture" data-desc="Glaciers build valleys, reshape landscapes, and calve icebergs in ways entirely their own. Their lives — from formation over millennia to the hints they leave behind."><div class="content-place">Poles</div><div class="content-card-header"><div class="content-card-title">The Very Cool Life of Glaciers</div><div class="content-badge">30 min · Lecture</div></div><div class="content-desc">Glaciers build valleys, reshape landscapes, and calve icebergs in ways entirely their own.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Lecture" data-title="Permafrost" data-place="Arctic" data-badge="30 min · Lecture" data-desc="Around 11% of global land sits on permanently frozen ground — readable in the landscape. Geomorphology, ecosystems, and what rapid warming means for permafrost-rich regions."><div class="content-place">Arctic</div><div class="content-card-header"><div class="content-card-title">Permafrost</div><div class="content-badge">30 min · Lecture</div></div><div class="content-desc">Around 11% of global land sits on permanently frozen ground — readable in the landscape.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Lecture" data-title="Plastic Invasion: the Ocean Chronicles" data-place="Any location" data-badge="40 min · Lecture" data-desc="Plastic is remarkably useful and remarkably persistent. How it ended up everywhere — including the deepest, remotest parts of the ocean."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Plastic Invasion: the Ocean Chronicles</div><div class="content-badge">40 min · Lecture</div></div><div class="content-desc">Plastic is remarkably useful and remarkably persistent. How it ended up everywhere.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Lecture" data-title="Atacama Desert" data-place="South and Central America" data-badge="35 min · Lecture" data-desc="The Atacama is so dry it's almost alien. Why? Since when? And what does that dryness have to do with its mineral wealth? Don't forget your water bottle."><div class="content-place">South and Central America</div><div class="content-card-header"><div class="content-card-title">Atacama Desert</div><div class="content-badge">35 min · Lecture</div></div><div class="content-desc">The Atacama is so dry it's almost alien. Why? Since when? And what does that have to do with its mineral wealth?</div><div class="content-card-arrow">→</div></div>
 
-        <div class="content-card" data-type="Workshop" data-title="Earthquake Prediction Contest" data-place="Any location" data-badge="30 min · Workshop" data-desc="With all the technology available, predicting earthquakes should be simple — right? A participative look at why it turns out to be anything but."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Earthquake Prediction Contest</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">Predicting earthquakes should be simple with all our technology — right?</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Workshop" data-title="Volcano Types" data-place="Any location" data-badge="30 min · Workshop" data-desc="Why do different volcanoes look and behave so differently? Come and build some — though be warned, volcanoes tend to make a mess wherever they are."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Volcano Types</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">Why do different volcanoes look and behave so differently? Come and build some.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Workshop" data-title="Finger Painting Cloud Chart" data-place="Any location" data-badge="60 min · Workshop" data-desc="The best way to remember cloud types is to make your own cheat sheet. Hands-on and artistic — talent not required, but wear clothes you don't mind getting messy."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Finger Painting Cloud Chart</div><div class="content-badge">60 min · Workshop</div></div><div class="content-desc">The best way to remember cloud types is to make your own cheat sheet. Artistic and hands-on.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Workshop" data-title="Scientific Drawing" data-place="Any location" data-badge="45 min · Workshop" data-desc="Practise the drawing methods naturalists used to record their observations. Bring curiosity — and patience."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Scientific Drawing</div><div class="content-badge">45 min · Workshop</div></div><div class="content-desc">Practise the drawing methods naturalists used to record their observations.</div><div class="content-card-arrow">→</div></div>
+        <!-- LECTURES -->
+        <div class="content-card" data-type="Lecture" data-title="Tectonic Evolution of Antarctica: Rocks, Fossils and Moving Continents" data-place="Antarctica" data-img='content-antarctica.png' data-badge="30 min · Lecture" data-desc="Antarctica the white continent is quite shy. Only a fraction of it is not covered by ice. That does not mean we don't know what has been going on during the millions of years of its existence! If Antarctica is today so modestly protected by this chaste blanket, it is perhaps because it's ashamed of its past destroyed friendships with other continents?"><div class="content-place">Antarctica</div><div class="content-card-header"><div class="content-card-title">Tectonic Evolution of Antarctica: Rocks, Fossils and Moving Continents</div><div class="content-badge">30 min · Lecture</div></div><div class="content-desc">Antarctica keeps its rocky secrets under a blanket of ice — but its geological past is full of broken friendships with other continents.</div><div class="content-card-arrow">→</div></div>
 
-        <div class="content-card" data-type="Short talk" data-title="Why is the Ice Blue?" data-place="Poles" data-badge="10 min · Short talk" data-desc="Glaciers and icebergs often glow a deep, ethereal blue. The physics behind the colour is surprisingly beautiful."><div class="content-place">Poles</div><div class="content-card-header"><div class="content-card-title">Why is the Ice Blue?</div><div class="content-badge">10 min · Short talk</div></div><div class="content-desc">Glaciers and icebergs often glow a deep, ethereal blue. The physics is surprisingly beautiful.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Short talk" data-title="Auroras" data-place="Arctic" data-badge="5 min · Short talk" data-desc="How solar particles collide with our atmosphere to create dancing curtains of colour — and what determines where and when they appear."><div class="content-place">Arctic</div><div class="content-card-header"><div class="content-card-title">Auroras</div><div class="content-badge">5 min · Short talk</div></div><div class="content-desc">How solar particles create those dancing curtains of colour — and when they appear.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Short talk" data-title="What is a Long Time?" data-place="Any location" data-badge="10 min · Short talk" data-desc="Geologists talk casually about millions and billions of years. Putting deep time in perspective on a human scale."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">What is a Long Time?</div><div class="content-badge">10 min · Short talk</div></div><div class="content-desc">Geologists talk casually about millions of years. Putting deep time in human perspective.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Short talk" data-title="Who Am I? — Jeanne Baret" data-place="Antarctica" data-badge="5 min · Short talk" data-desc="A mystery figure from history: the first woman to circumnavigate the globe — travelling disguised as a man on a French expedition."><div class="content-place">Antarctica</div><div class="content-card-header"><div class="content-card-title">Who Am I? — Jeanne Baret</div><div class="content-badge">5 min · Short talk</div></div><div class="content-desc">The first woman to circumnavigate the globe — disguised as a man on a French expedition.</div><div class="content-card-arrow">→</div></div>
+        <div class="content-card" data-type="Lecture" data-title="Alaska Terranes Geology: Story of the fun stepfamily" data-place="Alaska" data-img='content-alaska.png' data-badge="35 min · Lecture" data-desc="The areas we are discovering are the result of the tectonic marriage of widely diverse pieces of land. Let's explore the bumpy story of their reunion and the rich tapestry of astounding landscapes and mineral resources it has produced."><div class="content-place">Alaska</div><div class="content-card-header"><div class="content-card-title">Alaska Terranes Geology: Story of the fun stepfamily</div><div class="content-badge">35 min · Lecture</div></div><div class="content-desc">Alaska's landscapes are the result of a tectonic marriage of wildly diverse land pieces — and quite a bumpy reunion story.</div><div class="content-card-arrow">→</div></div>
 
-        <div class="content-card" data-type="Activity" data-title="Survey: How do you feel about Climate Change?" data-place="Any location" data-badge="Passive · Activity" data-desc="An onboard survey capturing how passengers think and feel about the climate crisis. Part of an ongoing science communication research project with an openly published dataset."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Survey: How do you feel about Climate Change?</div><div class="content-badge">Passive · Activity</div></div><div class="content-desc">Onboard survey capturing passenger attitudes on climate change. Part of an open research project.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Activity" data-title="Watercolour Painting" data-place="Any location" data-badge="60+ min · Activity" data-desc="Guided or free-form watercolour session. No experience needed — just some willingness to look carefully at what's outside."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Watercolour Painting</div><div class="content-badge">60+ min · Activity</div></div><div class="content-desc">Guided or free-form watercolour session. No experience needed — just curiosity.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Activity" data-title="Fjordphyto Citizen Science Boat" data-place="Poles" data-badge="60+ min · Activity" data-desc="Collect water samples as part of the Fjordphyto project, studying phytoplankton from the ship. Real data, real science, real contribution."><div class="content-place">Poles</div><div class="content-card-header"><div class="content-card-title">Fjordphyto Citizen Science Boat</div><div class="content-badge">60+ min · Activity</div></div><div class="content-desc">Collect water samples as part of the Fjordphyto project. Real data, real science.</div><div class="content-card-arrow">→</div></div>
-        <div class="content-card" data-type="Activity" data-title="Intro to NASA Clouds Observer" data-place="Any location" data-badge="15 min · Activity" data-desc="How to identify and report clouds as part of a global citizen science network — a short introduction to becoming an official NASA observer."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Intro to NASA Clouds Observer</div><div class="content-badge">15 min · Activity</div></div><div class="content-desc">How to become an official NASA cloud observer — part of a global citizen science network.</div><div class="content-card-arrow">→</div></div>
+        <div class="content-card" data-type="Lecture" data-title="Plastic Invasion: the Ocean Chronicles" data-place="Any location" data-img='content-plastics.png' data-badge="40 min · Lecture" data-desc="Plastic is a light, versatile, conveniently durable substance... In fact, it is so exceptional that it has pervaded in all aspects of our daily lives, and today we are faced with undesirable circumstances: the ubiquity of plastic in all natural systems including the widest of them all, the Oceans."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Plastic Invasion: the Ocean Chronicles</div><div class="content-badge">40 min · Lecture</div></div><div class="content-desc">Plastic is remarkably useful and remarkably persistent. How it ended up everywhere — including the deepest, remotest parts of the ocean.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Lecture" data-title="Permafrost" data-place="Arctic" data-img='content-permafrost.png' data-badge="30 min · Lecture" data-desc="Around 11% of the global land surface is underlain by Permafrost, or Permanently Frozen Ground, and up to 50% in the Arctic... And we can spot it in the landscape! Discover the geomorphology and ecosystems that have evolved around permafrost, as well as the consequences of the rapid climatic changes on permafrost-rich areas."><div class="content-place">Arctic</div><div class="content-card-header"><div class="content-card-title">Permafrost</div><div class="content-badge">30 min · Lecture</div></div><div class="content-desc">Around 11% of global land sits on permanently frozen ground — readable in the landscape. Geomorphology, ecosystems, and what rapid warming means for permafrost-rich regions.</div><div class="content-card-arrow">→</div></div>
+
+        <!-- WORKSHOPS -->
+        <div class="content-card" data-type="Workshop" data-title="Inside Ice: Crystal Clear" data-place="Arctic & Antarctica" data-img='icetouch.jpeg' data-badge="30 min · Workshop" data-desc="We see different types of ice along our journey… But what makes ice different? Come and take a close look!"><div class="content-place">Arctic & Antarctica</div><div class="content-card-header"><div class="content-card-title">Inside Ice: Crystal Clear</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">We see so many types of ice along the way — but what actually makes them different? Come take a very close look.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Workshop" data-title="Volcano Types" data-place="Any location" data-img='volcano.jpg' data-badge="30 min · Workshop" data-desc="Why do different volcanoes have different shapes and eruption patterns? Come and try building volcanoes with different chemistries! But be warned: volcanoes tend to make a mess wherever they are..."><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Volcano Types</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">Why do different volcanoes look and behave so differently? Come and build some.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Workshop" data-title="Finger Painting Cloud Chart" data-place="Any location" data-img='cloudspainting.jpeg' data-badge="60 min · Workshop" data-desc="Do you know your clouds? Not yet? The best way to remember something is to write your own cheat sheet! Let's turn this in a very hands-on and artistic moment! Talent is NOT required for this activity, but maybe wear the clothes that you love the least…"><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Finger Painting Cloud Chart</div><div class="content-badge">60 min · Workshop</div></div><div class="content-desc">The best way to remember cloud types is to make your own cheat sheet. Artistic and hands-on — talent not required, but wear clothes you don't mind getting messy.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Workshop" data-title="Arctic Flower Power (Plant ID)" data-place="Arctic" data-img='flowerpower.jpeg' data-badge="30 min · Workshop" data-desc="The Arctic tundra bursts into color each short summer. Learn to identify the tiny but resilient flowering plants that bloom in one of Earth's harshest environments."><div class="content-place">Arctic</div><div class="content-card-header"><div class="content-card-title">Arctic Flower Power (Plant ID)</div><div class="content-badge">30 min · Workshop</div></div><div class="content-desc">The Arctic tundra bursts into colour each short summer. Learn to identify the tiny, resilient flowering plants that bloom in one of Earth's harshest environments.</div><div class="content-card-arrow">→</div></div>
+
+        <!-- SHORT/TINY TALKS -->
+        <div class="content-card" data-type="Short talk" data-title="Wrangell Garnet" data-place="Alaska" data-img='garnet.png' data-badge="5 min · Short talk" data-desc="Wrangell, Alaska is famous for its garnets found in a cliff face — and kids are allowed to mine them! Discover the story behind this unique geological site."><div class="content-place">Alaska</div><div class="content-card-header"><div class="content-card-title">Wrangell Garnet</div><div class="content-badge">5 min · Short talk</div></div><div class="content-desc">Wrangell, Alaska is famous for garnets found right in its cliff face — and kids are allowed to mine them. The story behind this unique geological gem.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Short talk" data-title="Why is your Nose Running When it's Cold?" data-place="Arctic & Antarctica" data-img='nose.png' data-badge="5–10 min · Short talk" data-desc="Cold air makes your nose run — and there's a perfectly good physiological reason why. A quick and relatable bit of body science!"><div class="content-place">Arctic & Antarctica</div><div class="content-card-header"><div class="content-card-title">Why is your Nose Running When it's Cold?</div><div class="content-badge">5–10 min · Short talk</div></div><div class="content-desc">Cold air makes your nose run — and there's a perfectly good physiological reason why. A quick and relatable bit of body science!</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Short talk" data-title="Who Am I? — Jeanne Baret" data-place="Antarctica" data-img='jeannebaret.jpeg' data-badge="5 min · Short talk" data-desc="A mystery guest from history: who was Jeanne Baret, the first woman to circumnavigate the globe — disguised as a man on a French expedition?"><div class="content-place">Antarctica</div><div class="content-card-header"><div class="content-card-title">Who Am I? — Jeanne Baret</div><div class="content-badge">5 min · Short talk</div></div><div class="content-desc">The first woman to circumnavigate the globe — disguised as a man on a French expedition.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Short talk" data-title="Lightning Show" data-place="South & Central America" data-img='lightning.png' data-badge="10–20 min · Short talk" data-desc="Lightning is one of nature's most spectacular electrical events. Discover how thunderstorms build and discharge millions of volts in an instant."><div class="content-place">South & Central America</div><div class="content-card-header"><div class="content-card-title">Lightning Show</div><div class="content-badge">10–20 min · Short talk</div></div><div class="content-desc">Lightning is one of nature's most spectacular electrical events. How thunderstorms build and discharge millions of volts in an instant.</div><div class="content-card-arrow">→</div></div>
+
+        <!-- ACTIVITIES -->
+        <div class="content-card" data-type="Activity" data-title="Survey: How do you feel about Climate Change?" data-place="Any location" data-img='climatechange.jpeg' data-badge="Passive · Activity" data-desc="A short survey to capture how passengers think and feel about the climate crisis today. Part of an ongoing science communication project with an openly published dataset. <a href='#climate'>Find out more →</a>"><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Survey: How do you feel about Climate Change?</div><div class="content-badge">Passive · Activity</div></div><div class="content-desc">Onboard survey capturing passenger attitudes on climate change. Part of an open research project.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Activity" data-title="Watercolour Painting" data-place="Any location" data-img='postcards.jpeg' data-badge="60+ min · Activity" data-desc="Guided or free-form watercolour painting session — no experience needed, just curiosity!"><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Watercolour Painting</div><div class="content-badge">60+ min · Activity</div></div><div class="content-desc">Guided or free-form watercolour session. No experience needed — just curiosity.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Activity" data-title="Fjordphyto Citizen Science Boat" data-place="Arctic & Antarctica" data-img='scienceboat.jpeg' data-badge="60+ min · Activity" data-desc="Join the Fjordphyto citizen science boat and collect water samples from the zodiac to study phytoplankton from the ship. Real data, real science, real contribution.<br><a href='https://www.fjordphyto.org/' target='_blank'>Find out more about the Fjordphyto Project →</a>"><div class="content-place">Arctic & Antarctica</div><div class="content-card-header"><div class="content-card-title">Fjordphyto Citizen Science Boat</div><div class="content-badge">60+ min · Activity</div></div><div class="content-desc">Collect water samples as part of the Fjordphyto project. Real data, real science.</div><div class="content-card-arrow">→</div></div>
+
+        <div class="content-card" data-type="Activity" data-title="Intro to Citizen Science Apps" data-place="Any location" data-img='citsci.jpeg' data-badge="15 min · Activity" data-desc="Hands-on citizen science activities aboard ship. <br><a href='https://www.inaturalist.org' target='_blank'>Find out more about the iNaturalist Citizen Science Project →</a><br><a href='https://observer.globe.gov/do-globe-observer/clouds/' target='_blank'>Find out more about the NASA Globe Observer Program for Clouds →</a>"><div class="content-place">Any location</div><div class="content-card-header"><div class="content-card-title">Intro to Citizen Science Apps</div><div class="content-badge">15 min · Activity</div></div><div class="content-desc">Turn your phone into a scientific instrument — contribute real observations to global research networks via NASA Globe Observer, iNaturalist, and more.</div><div class="content-card-arrow">→</div></div>
+
       </div>
 
       <p class="lectures-note">If you want to know more about my content, <a href="#contact">contact me!</a></p>
     </div>
   </section>
+
 
   <!-- CLIMATE CHANGE -->
   <section class="card-section climate" id="climate">
@@ -1407,7 +1969,7 @@ cards.forEach(card => {
     document.getElementById('modalLabel').textContent = card.dataset.place || '';
     document.getElementById('modalTitle').textContent = card.dataset.title || '';
     document.getElementById('modalMeta').textContent  = card.dataset.badge || '';
-    document.getElementById('modalDesc').textContent  = card.dataset.desc  || '';
+    document.getElementById('modalDesc').innerHTML  = card.dataset.desc  || '';
 
     const ph  = document.querySelector('#modalPhoto .modal-photo-ph');
     let   img = document.getElementById('modalImg');
@@ -1440,6 +2002,9 @@ function closeModal() {
 
 modalClose.addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.getElementById('modalDesc').addEventListener('click', e => {
+  if (e.target.tagName === 'A') closeModal();
+});
 
 // ── Escape key ───────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
@@ -1462,59 +2027,107 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// ── Carousel ─────────────────────────────────────────────────────────
-const track    = document.getElementById('carouselTrack');
-const slides   = track ? Array.from(track.children) : [];
-const dotsWrap = document.getElementById('carouselDots');
-let cur = 0, timer;
+// ── Going back in time ───────────────────────────────────────────────
+function gbitScroll(id, dir) {
+  const el = document.getElementById(id);
+  if (el) el.scrollBy({ left: dir * 140, behavior: 'smooth' });
+}
 
-if (slides.length) {
-  slides.forEach((_, i) => {
+const gbitNodes = document.querySelectorAll('.gbit-node');
+const gbitPanels = document.querySelectorAll('#gbitPanel > div');
+
+gbitNodes.forEach(node => {
+  node.addEventListener('click', () => {
+    const id = node.dataset.panel;
+    gbitNodes.forEach(n => n.classList.remove('active'));
+    node.classList.add('active');
+    gbitPanels.forEach(p => p.classList.add('gbit-hidden'));
+    const target = document.getElementById('gbit-' + id);
+    if (target) {
+      target.classList.remove('gbit-hidden');
+      target.querySelectorAll('img.lazy').forEach(img => img.classList.add('loaded'));
+    }
+  });
+});
+
+// ── Tabbed carousel ──────────────────────────────────────────────────
+const track    = document.getElementById('carouselTrack');
+const allSlides = track ? Array.from(track.children) : [];
+const dotsWrap = document.getElementById('carouselDots');
+const tabBtns  = document.querySelectorAll('.tab-btn');
+let cur = 0, timer, activeTab = 'ops';
+let visibleSlides = [];
+
+function buildDots() {
+  dotsWrap.innerHTML = '';
+  visibleSlides.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
     d.setAttribute('aria-label', 'Slide ' + (i + 1));
     d.addEventListener('click', () => goTo(i));
     dotsWrap.appendChild(d);
   });
+}
 
-  function goTo(n) {
-    cur = (n + slides.length) % slides.length;
-    track.style.transform = `translateX(-${cur * 100}%)`;
-    dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-    clearInterval(timer);
-    timer = setInterval(() => goTo(cur + 1), 5500);
-  }
+function goTo(n) {
+  cur = (n + visibleSlides.length) % visibleSlides.length;
+  track.style.transform = `translateX(-${cur * 100}%)`;
+  dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  clearInterval(timer);
+  timer = setInterval(() => goTo(cur + 1), 5500);
+}
+
+function switchTab(tab) {
+  activeTab = tab;
+  cur = 0;
+  clearInterval(timer);
+allSlides.forEach(s => {
+  const show = s.dataset.tab === tab;
+  s.style.minWidth = show ? '100%' : '0';
+  s.style.overflow = show ? '' : 'hidden';
+  s.style.opacity  = show ? '' : '0';
+  s.style.pointerEvents = show ? '' : 'none';
+});
+  visibleSlides = allSlides.filter(s => s.dataset.tab === tab);
+  visibleSlides.forEach(s => {
+    s.querySelectorAll('img.lazy').forEach(img => img.classList.add('loaded'));
+  });
+  track.style.transition = 'none';
+track.style.transform = `translateX(0%)`;
+  requestAnimationFrame(() => {
+    track.style.transition = '';
+  });
+  buildDots();
+  timer = setInterval(() => goTo(cur + 1), 5500);
+}
+
+if (allSlides.length) {
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      switchTab(btn.dataset.tab);
+    });
+  });
 
   document.getElementById('carouselPrev').addEventListener('click', () => goTo(cur - 1));
   document.getElementById('carouselNext').addEventListener('click', () => goTo(cur + 1));
-  window.addEventListener('load', () => { timer = setInterval(() => goTo(cur + 1), 5500); });
 
   let tx = 0;
   track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) goTo(dx < 0 ? cur + 1 : cur - 1); }, { passive: true });
+
+  window.addEventListener('load', () => { switchTab('ops'); });
 }
 
 // ── Lazy loading ─────────────────────────────────────────────────────
-if ('IntersectionObserver' in window) {
-  const imgObs = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) img.src = img.dataset.src;
-        img.classList.add('loaded');
-        obs.unobserve(img);
-      }
-    });
-  }, { rootMargin: '200px' });
-
-  document.querySelectorAll('img.lazy').forEach(img => {
-    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
-    else {
-      img.addEventListener('load', () => img.classList.add('loaded'));
-      imgObs.observe(img);
-    }
-  });
-}
+document.querySelectorAll('img.lazy').forEach(img => {
+  if (img.complete && img.naturalWidth > 0) {
+    img.classList.add('loaded');
+  } else {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+  }
+});
 </script>
 </body>
 </html>
