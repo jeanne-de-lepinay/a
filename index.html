@@ -69,7 +69,7 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 3.5rem;
-  background: rgba(242,239,232,0.95);
+  background: rgba(252, 249, 242, 0.95);
   border-bottom: 1px solid rgba(45,79,60,0.12);
   backdrop-filter: blur(16px) saturate(1.4);
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
@@ -156,9 +156,15 @@ nav {
   display: flex;
   align-items: center;
   gap: 1rem;
+  justify-content: space-between;
+}
+.eyebrow-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.hero-eyebrow::after {
+.eyebrow-text::after {
   content: '';
   display: block;
   width: 32px;
@@ -166,6 +172,42 @@ nav {
   background: var(--teal);
   opacity: 0.4;
 }
+
+.status-pill {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.status-pill.sea {
+  background: rgba(143,181,197,0.15);
+  border: 0.5px solid rgba(143,181,197,0.45);
+  color: #4a7585;
+}
+
+.status-pill.land {
+  background: rgba(201,164,74,0.12);
+  border: 0.5px solid rgba(201,164,74,0.35);
+  color: #a07c28;
+}
+
+.status-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.sea .status-dot { background: #4a7585; }
+.land .status-dot { background: #c9a44a; }
+
+
 
 h1 {
   font-family: var(--serif);
@@ -1229,7 +1271,7 @@ img.lazy.loaded { opacity: 1; }
     position: absolute;
     top: 100%; left: 0; right: 0;
     flex-direction: column;
-    background: rgba(242,239,232,0.98);
+    background: rgba(252, 249, 242, 0.95);
     border-bottom: 1px solid rgba(45,79,60,0.1);
     padding: 1rem 1.5rem;
     backdrop-filter: blur(16px);
@@ -1324,7 +1366,10 @@ img.lazy.loaded { opacity: 1; }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Earth Science</p>
+    <div class="hero-eyebrow">
+       <p class="eyebrow-text">Earth Science</p>
+       <span class="status-pill" id="statusPill"></span>
+    </div>
     <h1>Jeanne<br><em>de Lépinay</em></h1>
     <p class="hero-subtitle">Geophysicist (PhD) &nbsp;·&nbsp; <span>Expedition Guide</span> &nbsp;·&nbsp; Lecturer</p>
     <p class="hero-lead">Working at the intersection of Earth science, fieldwork, and science communication — on ships, in lecture rooms, and everywhere in between.</p>
@@ -2159,6 +2204,21 @@ document.querySelectorAll('[data-links]').forEach(btn => {
 document.querySelectorAll('.link-card[data-color]').forEach(card => {
   card.style.background = card.dataset.color;
 });
+// ── STATUS — edit this only ─────────────────────────────────────────
+const STATUS = {
+  at: 'sea',       // 'sea' or 'land'
+  date: '04 Jul'   // return date if at sea, leaving date if on land
+};
+// ───────────────────────────────────────────────────────────────────
+
+const pill = document.getElementById('statusPill');
+if (pill) {
+  const label = STATUS.at === 'sea'
+    ? `At sea · back ${STATUS.date}`
+    : `On land · leaving ${STATUS.date}`;
+  pill.className = `status-pill ${STATUS.at}`;
+  pill.innerHTML = `<span class="status-dot"></span>${label}`;
+}
 </script>
 </body>
 </html>
