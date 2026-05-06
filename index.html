@@ -191,6 +191,43 @@ h1 em { font-style: italic; font-weight: 300; color: var(--stone); }
 
 .hero-subtitle span { color: var(--teal); }
 
+.hero-langs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 1.2rem;
+  margin-top: 1.2rem;
+  border-top: 1px solid rgba(45,79,60,0.1);
+}
+
+.hero-lang-row { display: flex; align-items: center; gap: 0.8rem; }
+
+.hero-lang-name {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  width: 58px;
+  flex-shrink: 0;
+}
+
+.hero-lang-level {
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-light);
+  flex: 1;
+}
+
+.hero-lang-bar { display: flex; gap: 4px; }
+
+.hdot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(47,114,96,0.15);
+}
+
+.hdot.on { background: var(--teal); }
+
 .hero-lead {
   font-family: var(--serif);
   font-size: 1.08rem;
@@ -405,23 +442,23 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 
 .cert-group-full { margin-bottom: 2.5rem; }
 
-.cert-group-title,
-.lang-panel-title {
-  font-size: 0.62rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--ink-light);
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid rgba(45,79,60,0.1);
-}
+<!-- .lang-panel-title, -->
+<!-- .cert-group-title { -->
+  <!-- font-size: 0.62rem; -->
+  <!-- letter-spacing: 0.24em; -->
+  <!-- text-transform: uppercase; -->
+  <!-- color: var(--ink-light); -->
+  <!-- margin-bottom: 1.5rem; -->
+  <!-- padding-bottom: 0.6rem; -->
+  <!-- border-bottom: 1px solid rgba(45,79,60,0.1); -->
+<!-- } -->
 
 .cert-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 0.9rem;
   justify-content: center;
-  max-width: 600px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -459,37 +496,37 @@ h2 em { font-style: italic; font-weight: 300; color: var(--stone); }
 .cert-badge:hover .cert-icon-wrap { border-color: rgba(47,114,96,0.4); background: rgba(47,114,96,0.09); }
 .cert-badge:hover svg { stroke: var(--teal); }
 
-.learn-more-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.64rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--teal);
-  text-decoration: none;
-  margin-top: 2rem;
-  padding-bottom: 0.12rem;
-  border-bottom: 1px solid rgba(47,114,96,0.25);
-  transition: all 0.2s;
-}
+<!-- .learn-more-link { -->
+  <!-- display: flex; -->
+  <!-- justify-content: center; -->
+  <!-- align-items: center; -->
+  <!-- gap: 0.45rem; -->
+  <!-- font-size: 0.64rem; -->
+  <!-- letter-spacing: 0.12em; -->
+  <!-- text-transform: uppercase; -->
+  <!-- color: var(--teal); -->
+  <!-- text-decoration: none; -->
+  <!-- margin-top: 2rem; -->
+  <!-- padding-bottom: 0.12rem; -->
+  <!-- border-bottom: 1px solid rgba(47,114,96,0.25); -->
+  <!-- transition: all 0.2s; -->
+<!-- } -->
 
-.learn-more-link:hover { opacity: 0.7; }
-.learn-more-link::after { content: '↓'; font-size: 0.72rem; }
+<!-- .learn-more-link:hover { opacity: 0.7; } -->
+<!-- .learn-more-link::after { content: '↓'; font-size: 0.72rem; } -->
 
-.lang-panel-title { border-color: rgba(45,79,60,0.1); }
+<!-- .lang-panel-title { border-color: rgba(45,79,60,0.1); } -->
 
-.lang-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(45,79,60,0.08);
-}
+<!-- .lang-row { -->
+  <!-- display: flex; -->
+  <!-- justify-content: space-between; -->
+  <!-- align-items: center; -->
+  <!-- padding: 0.75rem 0; -->
+  <!-- border-bottom: 1px solid rgba(45,79,60,0.08); -->
+<!-- } -->
 
-.lang-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--ink); }
-.lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+<!-- .lang-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: var(--ink); } -->
+<!-- .lang-level { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); } -->
 
 /* ── AT SEA — tabbed carousel ── */
 .tab-row {
@@ -1305,6 +1342,29 @@ img.lazy.loaded { opacity: 1; }
         <span class="region-tag">Caribbean</span>
       </div>
     </div>
+	<div class="hero-langs">
+  <div class="hero-lang-row">
+    <div class="hero-lang-name">French</div>
+    <div class="hero-lang-level">Native</div>
+    <div class="hero-lang-bar">
+      <div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div>
+    </div>
+  </div>
+  <div class="hero-lang-row">
+    <div class="hero-lang-name">English</div>
+    <div class="hero-lang-level">C2 Professional</div>
+    <div class="hero-lang-bar">
+      <div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div>
+    </div>
+  </div>
+  <div class="hero-lang-row">
+    <div class="hero-lang-name">German</div>
+    <div class="hero-lang-level">B1 Conversational</div>
+    <div class="hero-lang-bar">
+      <div class="hdot on"></div><div class="hdot on"></div><div class="hdot on"></div><div class="hdot"></div><div class="hdot"></div>
+    </div>
+  </div>
+</div>
   </div>
   <div class="hero-right">
     <img
@@ -1531,7 +1591,7 @@ img.lazy.loaded { opacity: 1; }
 
       </div>
 	  <br>
-	  <p> <a href='#myjob'>Find out more about my current job and qualifications ↓</a></p>
+	  <p> <a href='#myjob'>Find out more about my current job and qualifications</a> ↓ </p>
     </div>
   </section>
 
@@ -1630,46 +1690,45 @@ img.lazy.loaded { opacity: 1; }
         </div>
       </div>
 
-      <div style="height:1px;background:rgba(45,79,60,0.1);margin:3rem 0 2.5rem;"></div>
-      <span class="label" style="margin-bottom:2rem;display:block;">Maritime &amp; field certifications · Languages · Science communication</span>
-
+      <div style="height:1px;background:rgba(45,79,60,0.1);margin:2.5rem 0 2.5rem;"></div>
       
-      
+ 
       <div class="cert-group-full">
-        <div class="cert-group-title">Maritime & field</div>
+	  <span class="label" style="margin-bottom:1.2rem;display:block;">Maritime &amp; field certifications</span>
+        <!-- <div class="cert-group-title">Maritime & field</div> -->
         <div class="cert-badges">
-          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v13M5 12H2a10 10 0 0020 0h-3"/></svg></div><div class="cert-badge-name">STCW + Crowd & Crisis + PDSD</div></div>
-          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div><div class="cert-badge-name">Wilderness First Aid</div></div>
+          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v13M5 12H2a10 10 0 0020 0h-3"/></svg></div><div class="cert-badge-name">STCW + Crowd & Crisis + PDSD (2023)</div></div>
+          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div><div class="cert-badge-name">Wilderness First Aid (2024)</div></div>
           <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 3c3 0 6 2 6 5v15H6V8c0-3 3-5 6-5z"/><path d="M8 12h8M8 17h8"/></svg></div><div class="cert-badge-name">RYA Powerboat L2</div></div>
           <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg></div><div class="cert-badge-name">RYA VHF C1/D & B1/B2</div></div>
-          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cert-badge-name">Sysselmesteren Permit</div></div>
-          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6M9 15h6"/></svg></div><div class="cert-badge-name">ENG1 Medical</div></div>
+          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cert-badge-name">Sysselmesteren Permit to carry</div></div>
+          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6M9 15h6"/></svg></div><div class="cert-badge-name">ENG1 Medical (2025)</div></div>
           <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><div class="cert-badge-name">ILO Seaman's Book</div></div>
-          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="cert-badge-name">US Visa C1/D & B1/B2</div></div>
-          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div><div class="cert-badge-name">Engineering Degree, Geophysics</div></div>
+          <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="cert-badge-name">US Visa C1/D & B1/B2 (2032)</div></div>
+          <!-- <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg></div><div class="cert-badge-name">PhD</div></div> -->
         </div>
     </div>
 	
-	<div class="certs-outer">
-        <div class="cert-group">
-          <div class="cert-group-title">Science communication</div>
-          <div class="cert-badges">
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="cert-badge-name">Lectures & workshops</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div><div class="cert-badge-name">Citizen science</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="cert-badge-name">Discussion panels</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="cert-badge-name">Art & science</div></div>
-            <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="cert-badge-name">Short talks</div></div>
-          </div>
-          <a class="learn-more-link" href="#lectures">See what I talk about</a>
-        </div>
-		<div class="cert-group">
-          <div class="lang-panel-title">Languages</div>
-          <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">Native · C2+</span></div>
-          <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Full professional · C2</span></div>
-          <div class="lang-row"><span class="lang-name">German</span><span class="lang-level">Conversational · B1–B2</span></div>
-        </div>
+	<!-- <div class="certs-outer"> -->
+        <!-- <div class="cert-group"> -->
+          <!-- <div class="cert-group-title">Science communication</div> -->
+          <!-- <div class="cert-badges"> -->
+            <!-- <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="cert-badge-name">Lectures & workshops</div></div> -->
+            <!-- <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div><div class="cert-badge-name">Citizen science</div></div> -->
+            <!-- <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="cert-badge-name">Discussion panels</div></div> -->
+            <!-- <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="cert-badge-name">Art & science</div></div> -->
+            <!-- <div class="cert-badge"><div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="cert-badge-name">Short talks</div></div> -->
+          <!-- </div> -->
+          <!-- <a class="learn-more-link" href="#lectures">See what I talk about</a> -->
+        <!-- </div> -->
+		<!-- <div class="cert-group"> -->
+          <!-- <div class="lang-panel-title">Languages</div> -->
+          <!-- <div class="lang-row"><span class="lang-name">French</span><span class="lang-level">Native · C2+</span></div> -->
+          <!-- <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Full professional · C2</span></div> -->
+          <!-- <div class="lang-row"><span class="lang-name">German</span><span class="lang-level">Conversational · B1–B2</span></div> -->
+        <!-- </div> -->
 		
-		</div>
+		<!-- </div> -->
 
   </section>
 
