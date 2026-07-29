@@ -1435,9 +1435,10 @@ img.lazy.loaded { opacity: 1; }
       <div class="about-layout">
         <div class="about-body">
 			<p> I hold a PhD in Geophysics from Université de Strasbourg, with doctoral research in magnetic surveying and subsurface geological interpretation, including remote fieldwork and early science communication activities. I went on to work as a geophysicist across academia and industry, spanning geology, geothermal energy, mining, archaeology, and civil engineering. </p>
-				Since 2023, I have been working as an Expedition Guide, Geologist, and Environmental Scientist  aboard <a href="https://www.travelhx.com" target="_blank">HX</a> vessels, accumulating 500+ days at sea across Arctic and Antarctic itineraries. Holding all relevant maritime and wilderness certifications for high-latitude work, I specialise in making complex Earth and environmental science accessible and engaging for expedition passengers. </p>
-         <!--  <p>I studied geophysics in Strasbourg (France) for my Engineering degree, and proceeded with a PhD with fieldwork in Guadeloupe — developing magnetic survey techniques by motorboat and drone to map the geothermal potential of this volcanic island. That thread carried through several postdocs in academia, before I joined a drone magnetic mapping start-up as their sole geophysicist, getting a real taste of the industry side of things.</p> -->
-        <!--   <p>But alongside the research, a parallel passion was quietly taking shape: the urge to make science accessible, vivid, and worth caring about. Since 2023, I've been pursuing that full-time as a science communicator aboard <a href="https://www.travelhx.com" target="_blank">HX</a> vessels — bringing geology to life in some of the most extraordinary corners of the planet, from North to South, focusing on the polar regions.</p> -->
+			<p> Since 2023, I have been working as an Expedition Guide, Geologist, and Environmental Scientist  aboard <a href="https://www.travelhx.com" target="_blank">HX</a> vessels, accumulating 500+ days at sea across Arctic and Antarctic itineraries. Holding all relevant maritime and wilderness certifications for high-latitude work, I specialise in making complex Earth and environmental science accessible and engaging for expedition passengers. </p>
+         
+         <!-- <p>I studied geophysics in Strasbourg (France) for my Engineering degree, and proceeded with a PhD with fieldwork in Guadeloupe — developing magnetic survey techniques by motorboat and drone to map the geothermal potential of this volcanic island. That thread carried through several postdocs in academia, before I joined a drone magnetic mapping start-up as their sole geophysicist, getting a real taste of the industry side of things.</p>--> 
+         <!-- <p>But alongside the research, a parallel passion was quietly taking shape: the urge to make science accessible, vivid, and worth caring about. Since 2023, I've been pursuing that full-time as a science communicator aboard <a href="https://www.travelhx.com" target="_blank">HX</a> vessels — bringing geology to life in some of the most extraordinary corners of the planet, from North to South, focusing on the polar regions.</p> -->
 		  
         </div>
       </div>
@@ -1852,7 +1853,7 @@ img.lazy.loaded { opacity: 1; }
   </section>
 
 
-  <!-- CLIMATE CHANGE -->
+<!-- CLIMATE CHANGE -->
   <section class="card-section climate" id="climate">
     <div class="inner">
       <span class="label">Climate Change</span>
@@ -1860,12 +1861,12 @@ img.lazy.loaded { opacity: 1; }
       <div class="rule"></div>
       <div class="climate-layout">
         <div class="climate-text">
-          <p>Since 2023, I've been running a survey aboard Travel HX vessels — collecting responses from passengers on their views, feelings, and attitudes toward climate change. The survey runs in English, German, and Chinese.</p>
+          <p>Recently (2026), I've been running a survey aboard Travel HX vessels — collecting responses from passengers on their views, feelings, and attitudes toward climate change. The survey runs in English, French, German, and Chinese.</p>
           <p>Results are analysed using k-means clustering and PCA to identify distinct respondent profiles. The findings are published openly on a dedicated website.</p>
           <div class="climate-stats">
-            <div class="climate-stat"><div class="climate-stat-num">287</div><div class="climate-stat-label">Respondents · 2 cruises</div></div>
-            <div class="climate-stat"><div class="climate-stat-num">67%</div><div class="climate-stat-label">View CC as serious & human-caused</div></div>
-            <div class="climate-stat"><div class="climate-stat-num">7.4</div><div class="climate-stat-label">Mean personal worry / 10</div></div>
+            <div class="climate-stat"><div class="climate-stat-num" id="stat-respondents">655</div><div class="climate-stat-label" id="stat-cruises">Respondents · 7 cruises</div></div>
+            <div class="climate-stat"><div class="climate-stat-num" id="stat-serious">68%</div><div class="climate-stat-label">View CC as serious & human-caused</div></div>
+            <div class="climate-stat"><div class="climate-stat-num" id="stat-worry">7.4</div><div class="climate-stat-label">Mean personal worry / 10</div></div>
             <div class="climate-stat"><div class="climate-stat-num">4</div><div class="climate-stat-label">Respondent profiles (k-means)</div></div>
           </div>
         </div>
@@ -1876,9 +1877,9 @@ img.lazy.loaded { opacity: 1; }
             <a class="climate-link" href="https://jeanne-de-lepinay.github.io/climate-change-survey/" target="_blank">View the survey results</a>
             <div class="climate-worygap">
               <div class="climate-worygap-label">The worry gap</div>
-              <div class="mini-bar-row"><div class="mini-bar-top"><span>Personal worry</span><span>7.4 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:74%"></div></div></div>
-              <div class="mini-bar-row"><div class="mini-bar-top"><span>Fellow guests (perceived)</span><span>6.3 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:63%;opacity:0.65;"></div></div></div>
-              <div class="mini-bar-row"><div class="mini-bar-top"><span>General public (perceived)</span><span>4.9 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" style="width:49%;opacity:0.38;"></div></div></div>
+              <div class="mini-bar-row"><div class="mini-bar-top"><span>Personal worry</span><span id="gap-self">7.4 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" id="gap-self-bar" style="width:74%"></div></div></div>
+              <div class="mini-bar-row"><div class="mini-bar-top"><span>Fellow guests (perceived)</span><span id="gap-guests">6.5 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" id="gap-guests-bar" style="width:65%;opacity:0.65;"></div></div></div>
+              <div class="mini-bar-row"><div class="mini-bar-top"><span>General public (perceived)</span><span id="gap-public">4.8 / 10</span></div><div class="mini-bar-track"><div class="mini-bar-fill" id="gap-public-bar" style="width:48%;opacity:0.38;"></div></div></div>
             </div>
           </div>
         </div>
@@ -2208,8 +2209,8 @@ document.querySelectorAll('.link-card[data-color]').forEach(card => {
 });
 // ── STATUS — edit this only ─────────────────────────────────────────
 const STATUS = {
-  at: 'sea',       // 'sea' or 'land'
-  date: '04 Jul'   // return date if at sea, leaving date if on land
+  at: 'land',       // 'sea' or 'land'
+  date: '23 Aug'   // return date if at sea, leaving date if on land
 };
 // ───────────────────────────────────────────────────────────────────
 
@@ -2222,5 +2223,37 @@ if (pill) {
   pill.innerHTML = `<span class="status-dot"></span>${label}`;
 }
 </script>
+
+<script src="https://jeanne-de-lepinay.github.io/climate-change-survey/data.js"></script>
+<script>
+  try {
+    const SD = window.SD;
+    if (SD) {
+      const n = SD.meta.total_n;
+      const cruises = SD.meta.cruises.length;
+      const pctSerious = Math.round(SD.glance.pct_serious);
+      const q8 = SD.glance.q8_mean;           // personal worry
+      const q9 = SD.survey.all.q9.stats.mean;  // perceived general public worry
+      const q10 = SD.survey.all.q10.stats.mean; // perceived fellow-guest worry
+
+      document.getElementById('stat-respondents').textContent = n;
+      document.getElementById('stat-cruises').textContent = `Respondents · ${cruises} cruises`;
+      document.getElementById('stat-serious').textContent = pctSerious + '%';
+      document.getElementById('stat-worry').textContent = q8.toFixed(1);
+
+      document.getElementById('gap-self').textContent = `${q8.toFixed(1)} / 10`;
+      document.getElementById('gap-self-bar').style.width = (q8 * 10) + '%';
+
+      document.getElementById('gap-guests').textContent = `${q10.toFixed(1)} / 10`;
+      document.getElementById('gap-guests-bar').style.width = (q10 * 10) + '%';
+
+      document.getElementById('gap-public').textContent = `${q9.toFixed(1)} / 10`;
+      document.getElementById('gap-public-bar').style.width = (q9 * 10) + '%';
+    }
+  } catch (e) {
+    console.warn('Could not load live survey stats, showing fallback values.', e);
+  }
+</script>
+
 </body>
 </html>
